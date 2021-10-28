@@ -48,4 +48,11 @@ jobs:
           dotnet restore
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"      
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"  
+          
+      - name: Publish Unit Test Results
+          uses: EnricoMi/publish-unit-test-result-action@v1
+          if: always()
+          with:
+            files: test-results/**/*.xml
+
