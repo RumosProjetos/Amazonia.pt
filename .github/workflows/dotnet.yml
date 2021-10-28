@@ -47,13 +47,13 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"JonatasAfonso_Amazonia.pt" /o:"rumosamazonia" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore
           dotnet build --no-restore
-          dotnet test --no-build --verbosity normal --logger:"trx;LogFileName=test-results/**/TestResults.xml"
+          dotnet test --no-build --verbosity normal --logger:"trx;LogFileName=TestResults.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"  
           
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
         if: always()
         with:
-          files: test-results/**/*.xml
+          files: /*.xml
 
 
