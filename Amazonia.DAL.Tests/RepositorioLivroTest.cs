@@ -108,24 +108,9 @@ namespace Amazonia.DAL.Tests
 
 
 
-        [TestMethod]
-        public void MyTestMethodCreation()
-        {
-            var path = @"c:\temp_local\";
-            if (Directory.Exists(path) == false)
-            {
-                Directory.CreateDirectory(path);
-            }
-        }
-
-        [TestMethod]
-        public void MyTestMethodDestruction()
-        {
-            var path = @"c:\temp_local\";
-            if (Directory.Exists(path))
-            {
-                Directory.Delete(path);
-            }
-        }
+        ///TDD
+        ///Test 
+        ///Driven
+        ///Development
     }
 }
