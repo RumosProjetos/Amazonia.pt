@@ -1,12 +1,15 @@
 using Amazonia.DAL.Entidades;
+using Amazonia.DAL.Infraestrutura;
 using Amazonia.DAL.Repositorios;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Amazonia.DAL.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class RepositorioLivroTest
     {
         [TestMethod]
         public void DeveCriarUmObjetoDoTipoRepositorioLivros()
@@ -41,6 +44,7 @@ namespace Amazonia.DAL.Tests
         }
 
 
+        [Ignore] //TODO: Modificar esse teste quando a action estiver OK no GitHub
         [TestMethod]
         public void DeveCriarUmaListaDeLivrosNoObjetoDoTipoRepositorioLivrosComFalha()
         {
@@ -59,6 +63,46 @@ namespace Amazonia.DAL.Tests
             Assert.IsNotNull(livros);
             //Assert.IsTrue(quantidadeLivrosNoRepositorio == quantidadeElementos);
             Assert.AreEqual(quantidadeLivrosNoRepositorio, quantidadeElementos);
+        }
+
+
+        [TestMethod]
+        public void DeveApagarUmLivroDaLista()
+        {
+            //arrange
+            var repo = new RepositorioLivro();
+            var livros = repo.ObterTodos();
+            var livroAApagar = livros.FirstOrDefault();
+
+            //action
+            var livrosInicialmente = livros.Count;
+            repo.Apagar(livroAApagar);
+            var livrosDepoisDeApagar = livros.Count;
+
+            //assert
+            Assert.IsTrue(livrosInicialmente > livrosDepoisDeApagar);
+        }
+
+
+#if !DEBUG
+        [Ignore]
+#endif
+        [TestMethod]  
+        [ExpectedException(typeof(AmazoniaException))]
+        public void DeveGerarExceptionQuandoTentaApagarLivroInexistente()
+        {
+            //arrange
+            var repo = new RepositorioLivro();
+            var livros = repo.ObterTodos();
+            var livroInexistente = new LivroDigital();
+
+            //action
+            var livrosInicialmente = livros.Count;
+            repo.Apagar(livroInexistente);
+            var livrosDepoisDeApagar = livros.Count;
+
+            //assert
+            Assert.IsTrue(livrosInicialmente > livrosDepoisDeApagar);
         }
     }
 }
