@@ -1,22 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Amazonia.DAL.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Amazonia.DAL.Entidades.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ClienteTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void NifEstaValidoTest()
         {
             //Arrange
-            var cliente = new Cliente();
-            cliente.NumeroIdentificacaoFiscal = "269234950";
+            var cliente = new Cliente
+            {
+                NumeroIdentificacaoFiscal = "269234950"
+            };
 
             //Act
             var nifValido = cliente.NifEstaValido();
@@ -25,12 +21,14 @@ namespace Amazonia.DAL.Entidades.Tests
             Assert.IsTrue(nifValido);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void Nif2EstaValidoTest()
         {
             //Arrange
-            var cliente = new Cliente();
-            cliente.NumeroIdentificacaoFiscal = "260697915";
+            var cliente = new Cliente
+            {
+                NumeroIdentificacaoFiscal = "260697915"
+            };
 
             //Act
             var nifValido = cliente.NifEstaValido();
@@ -40,12 +38,14 @@ namespace Amazonia.DAL.Entidades.Tests
         }
 
 
-        [TestMethod()]
+        [TestMethod]
         public void NifEstaInValidoTest()
         {
             //Arrange
-            var cliente = new Cliente();
-            cliente.NumeroIdentificacaoFiscal = "269234951";
+            var cliente = new Cliente
+            {
+                NumeroIdentificacaoFiscal = "269234951"
+            };
 
             //Act
             var nifValido = cliente.NifEstaValido();
@@ -104,7 +104,5 @@ namespace Amazonia.DAL.Entidades.Tests
             //Assert
             Assert.IsTrue(nifInvalido);
         }
-
-
     }
 }
