@@ -48,6 +48,7 @@ jobs:
           dotnet restore
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal --logger:"trx;LogFileName=TestResults.xml"
+          dotnet test --no-build --verbosity normal --logger:"trx;LogFileName=c:\temp\TestResults.xml"          
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"  
           
       - name: Publish Unit Test Results
@@ -70,5 +71,7 @@ jobs:
             *TestResults.xml
             **/*TestResults.xml
             **/**/*TestResults.xml
+            c:\temp\TestResults.xml
+            c:/temp/TestResults.xml
 
 
