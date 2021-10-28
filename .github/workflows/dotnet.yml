@@ -55,17 +55,6 @@ jobs:
         if: always()
         with:
           files: |
-            TestResults/*.xml
-            ./TestResults/*.xml
-            ./TestRsults/**/*.xml
-            TestResults/*.xml
-            TestRsults/**/*.xml
-            test-results/*.xml
-            test-results/**/*.xml
-            *.xml
-            !config.xml
-            /TestResults/TestResults.xml
-            /TestResults/*.xml
             /**/*.xml
             **/*.xml
             */*/*.xml
