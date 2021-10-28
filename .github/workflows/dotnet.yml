@@ -65,5 +65,10 @@ jobs:
             !config.xml
             /TestResults/TestResults.xml
             /TestResults/*.xml
+            TestResults/TestResults.xml
+            */*TestResults.xml
+            *TestResults.xml
+            **/*TestResults.xml
+            **/**/*TestResults.xml
 
 
