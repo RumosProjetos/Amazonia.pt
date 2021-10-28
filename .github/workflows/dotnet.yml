@@ -57,7 +57,7 @@ jobs:
           files: |
            TestResults/*.xml
             ./TestResults/*.xml
-            ./TestRsults/**/*.xml
+            ./TestResults/**/*.xml
             TestResults/*.xml
             TestRsults/**/*.xml
             test-results/*.xml
