@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Amazonia.DAL.Repositorios;
 
 
@@ -8,9 +9,23 @@ namespace Amazonia.ConsoleAPP
     {
         static void Main(string[] args)
         {
-        //    ListarClientes()
+            //    ListarClientes()
 
-           ListarLivros();
+            var usarRegranovaStr = ConfigurationManager.AppSettings["regraNovaAtiva"];
+            var usarRegranova = Convert.ToBoolean(usarRegranovaStr);
+
+            if (usarRegranova)
+            {
+                ListarClientes();
+            }
+            else
+            {
+                ListarLivros();
+            }
+           
+
+            
+            //FeatureFlags
         }
 
 
@@ -31,7 +46,7 @@ namespace Amazonia.ConsoleAPP
              Console.WriteLine("Consulta do Database");
 
             var repo = new RepositorioCliente();
-            // var listaClientes = repo.ObterTodos();
+            // var listaClientes = repo.ObterTodos()
 
             var listaClientes = repo.ObterTodosQueComecemPor("J");
 
