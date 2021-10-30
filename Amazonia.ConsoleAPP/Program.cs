@@ -9,7 +9,7 @@ namespace Amazonia.ConsoleAPP
     {
         static void Main(string[] args)
         {
-            //    ListarClientes()
+            var chaveExemplo = ConfigurationManager.AppSettings["chaveExemplo"];            
 
             var usarRegranovaStr = ConfigurationManager.AppSettings["regraNovaAtiva"];
             var usarRegranova = Convert.ToBoolean(usarRegranovaStr);
@@ -21,11 +21,7 @@ namespace Amazonia.ConsoleAPP
             else
             {
                 ListarLivros();
-            }
-           
-
-            
-            //FeatureFlags
+            }           
         }
 
 
