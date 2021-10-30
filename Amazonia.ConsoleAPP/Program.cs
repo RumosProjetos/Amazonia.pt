@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using Amazonia.DAL.Repositorios;
-
+using Amazonia.DAL.Utils;
 
 namespace Amazonia.ConsoleAPP
 {
@@ -9,6 +9,9 @@ namespace Amazonia.ConsoleAPP
     {
         static void Main(string[] args)
         {
+            var valorObtidoPeloMetodo = Exemplo.ObterValorDoConfig("chaveExemplo");
+
+
             var chaveExemplo = ConfigurationManager.AppSettings["chaveExemplo"];            
 
             var usarRegranovaStr = ConfigurationManager.AppSettings["regraNovaAtiva"];
@@ -22,9 +25,10 @@ namespace Amazonia.ConsoleAPP
             {
                 ListarLivros();
             }           
+
+
         }
-
-
+    
         public static void ListarLivros(){
             
             var repo = new RepositorioLivro();

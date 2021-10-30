@@ -41,17 +41,14 @@ namespace Amazonia.DAL.Entidades
             {
                 return (11 - restoDivisaoPor11) == (Convert.ToInt32(NumeroIdentificacaoFiscal[8].ToString()));
             }
-
-
-                /*Colocar novas regras do algoritmo*/
-
-                //Ainda a definir
-                return true;
         }
 
 
 
-        //
+        /// <summary>
+        /// Exibe os dados do Cliente
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Nome: {Nome} => Idade: {Idade} => Identificador: {Identificador}";

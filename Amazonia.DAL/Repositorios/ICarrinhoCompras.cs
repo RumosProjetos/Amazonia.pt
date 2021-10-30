@@ -5,7 +5,7 @@ namespace Amazonia.DAL.Repositorios
 {
     interface ICarrinhoCompras
     {
-        decimal CalcularPreco(List<Livro> livros);
-        decimal AplicarDesconto(int valorDesconto); //TODO: Criar Regra Desconto
+        decimal CalcularPreco();
+        decimal AplicarDesconto(decimal valorDesconto); 
     }
 }

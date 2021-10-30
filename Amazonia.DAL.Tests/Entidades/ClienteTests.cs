@@ -2,7 +2,7 @@
 
 namespace Amazonia.DAL.Entidades.Tests
 {
-    [TestClass]
+    [TestClass]    
     public class ClienteTests
     {
         [TestMethod]
