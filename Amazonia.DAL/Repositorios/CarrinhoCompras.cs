@@ -1,4 +1,5 @@
-﻿using Amazonia.DAL.Entidades;
+﻿using Amazonia.DAL.Desconto;
+using Amazonia.DAL.Entidades;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,13 +10,21 @@ namespace Amazonia.DAL.Repositorios
         public Cliente Cliente { get; set; }
         public List<Livro> Livros { get; set; }
 
-        public decimal AplicarDesconto(decimal valorDesconto)
+        //Comentado apenas para guardar o exemplo
+        //public decimal AplicarDesconto(decimal valorDesconto)
+        //{
+        //    var fatorDesconto = (100 - valorDesconto)/100;  
+
+        //    var valorCalculado = Livros.Sum(x => x.ObterPreco());
+        //    var valorComDesconto =  valorCalculado * fatorDesconto;
+
+        //    return valorComDesconto;
+        //}
+
+        public decimal AplicarDesconto(IDesconto tipoDeDesconto)
         {
-            var fatorDesconto = (100 - valorDesconto)/100;  
-
-            var valorCalculado = Livros.Sum(x => x.ObterPreco());
-            var valorComDesconto =  valorCalculado * fatorDesconto;
-
+            var valorCalculado = Livros.Sum(x => x.ObterPreco()); //Trago o somatório de todos os livros (que tenham ou não descontos particulares)
+            var valorComDesconto = tipoDeDesconto.Aplicar(valorCalculado); //Cálculo com base na regra
             return valorComDesconto;
         }
 
