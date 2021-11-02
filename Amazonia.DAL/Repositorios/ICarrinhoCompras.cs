@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Amazonia.DAL.Entidades;
-
 namespace Amazonia.DAL.Repositorios
 {
     interface ICarrinhoCompras

@@ -15,5 +15,10 @@ namespace Amazonia.DAL.Entidades
         {
             return $"Livro Digital: " + base.ToString() + $"Informacoes Licenca: {InformacoesLicenca}";
         }
+
+
+        /*
+         if(entre 30 e 60 dias valor desconto = 10)
+         */
     }
 }
