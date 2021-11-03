@@ -55,7 +55,4 @@ jobs:
         if: always()
         with:
           files: |
-            TestResults/*.xml
-            ./TestResults/*.xml
-            ./TestResults/unittests.trx
             .\TestResults\unittests.trx
