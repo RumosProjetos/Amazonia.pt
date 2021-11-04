@@ -62,3 +62,10 @@ jobs:
             # .\*unittests.xml
             # .\**\**\unittests.xml
             TestResults/**/*.xml
+
+      - uses: dorny/test-reporter@v1
+        with:
+          artifact: TestResults             # artifact name
+          name: JEST Tests                  # Name of the check run which will be created
+          path: 'TestResults/*.xml'         # Path to test results (inside artifact .zip)
+          reporter: dotnet-trx              # Format of test results      
