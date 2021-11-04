@@ -48,11 +48,12 @@ jobs:
           dotnet restore
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory TestResults/ --logger "trx;LogFileName=unittests.trx" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}" 
-      
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"           
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        run: | 
+          dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory TestResults/ --logger "xml;LogFileName=unittests.xml" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
         if: always()
         with:
           files: |
-            .\TestResults\*.xml
+            .\TestResults\*.xml            
