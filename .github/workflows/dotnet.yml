@@ -51,6 +51,7 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"           
           dotnet test --results-directory TestResults/ --logger "trx;LogFileName=unittests.xml"
       
+      # https://github.com/EnricoMi/publish-unit-test-result-action/blob/master/README.md
       # It supports the JUnit XML file format and runs on Linux, macOS and Windows.    
       # - name: Publish Unit Test Results
       #   uses: EnricoMi/publish-unit-test-result-action/composite@v1
@@ -65,9 +66,24 @@ jobs:
       #       .\**\**\unittests.xml
       #       TestResults/**/*.xml
 
+      # https://github.com/marketplace/actions/test-reporter
       - uses: dorny/test-reporter@v1
         with:
           artifact: TestResults             # artifact name
-          name: JEST Tests                  # Name of the check run which will be created
-          path: 'TestResults/*.xml'         # Path to test results (inside artifact .zip)
+          name: JEST Tests 1                 # Name of the check run which will be created
+          path: '*.xml'                     # Path to test results (inside artifact .zip)
+          reporter: dotnet-trx              # Format of test results      
+
+      - uses: dorny/test-reporter@v1
+        with:
+          artifact: TestResults             # artifact name
+          name: JEST Tests  2                # Name of the check run which will be created
+          path: 'unittests.trx'             # Path to test results (inside artifact .zip)
+          reporter: dotnet-trx              # Format of test results      
+
+      - uses: dorny/test-reporter@v1
+        with:
+          artifact: TestResults             # artifact name
+          name: JEST Tests 2                 # Name of the check run which will be created
+          path: 'TestResults/unittests.trx'             # Path to test results (inside artifact .zip)
           reporter: dotnet-trx              # Format of test results      
