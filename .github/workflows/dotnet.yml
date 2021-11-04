@@ -50,18 +50,20 @@ jobs:
           dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory TestResults/ --logger "trx;LogFileName=unittests.trx" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"           
           dotnet test --results-directory TestResults/ --logger "trx;LogFileName=unittests.xml"
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v1
-        if: always()
-        with:
-          files: |
-            # .\TestResults\*.xml            
-            # **\*unittests.xml
-            # *unittests.xml
-            # **\**\unittests.xml
-            # .\*unittests.xml
-            # .\**\**\unittests.xml
-            TestResults/**/*.xml
+      
+      # It supports the JUnit XML file format and runs on Linux, macOS and Windows.    
+      # - name: Publish Unit Test Results
+      #   uses: EnricoMi/publish-unit-test-result-action/composite@v1
+      #   if: always()
+      #   with:
+      #     files: |
+      #       .\TestResults\*.xml            
+      #       **\*unittests.xml
+      #       *unittests.xml
+      #       **\**\unittests.xml
+      #       .\*unittests.xml
+      #       .\**\**\unittests.xml
+      #       TestResults/**/*.xml
 
       - uses: dorny/test-reporter@v1
         with:
