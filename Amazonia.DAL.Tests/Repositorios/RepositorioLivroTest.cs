@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Amazonia.DAL.Tests
+namespace Amazonia.DAL.Repositorios.Tests
 {
     [TestClass]
     public class RepositorioLivroTest
