@@ -52,7 +52,7 @@ jobs:
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
         run: | 
-          dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory TestResults/ --logger "xml;LogFileName=unittests.xml" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
+          dotnet test --results-directory TestResults/ --logger "trx;LogFileName=unittests.xml"
         if: always()
         with:
           files: |
