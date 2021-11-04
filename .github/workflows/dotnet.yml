@@ -49,7 +49,7 @@ jobs:
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory TestResults/ --logger "trx;LogFileName=unittests.trx" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"           
-      #   dotnet test --results-directory TestResults/ --logger "trx;LogFileName=unittests.xml"
+          dotnet test --results-directory TestResults/ --logger "trx;LogFileName=unittests.xml"
       
       # https://github.com/EnricoMi/publish-unit-test-result-action/blob/master/README.md
       # It supports the JUnit XML file format and runs on Linux, macOS and Windows.    
@@ -87,3 +87,11 @@ jobs:
       #     name: JEST Tests 2                 # Name of the check run which will be created
       #     path: 'TestResults/unittests.trx'             # Path to test results (inside artifact .zip)
       #     reporter: dotnet-trx              # Format of test results      
+
+      
+      - uses: dorny/test-reporter@v1
+        with:
+          artifact: TestResults             # artifact name
+          name: JEST Tests 2                 # Name of the check run which will be created
+          path: 'TestResults/**/*unittests.trx'             # Path to test results (inside artifact .zip)
+          reporter: dotnet-trx              # Format of test results      
