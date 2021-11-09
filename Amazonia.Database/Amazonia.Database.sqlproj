@@ -63,6 +63,7 @@
     <Folder Include="dbo\Views\" />
     <Folder Include="dbo\Procedures" />
     <Folder Include="dbo\NotInBuild" />
+    <Folder Include="dbo\ExemploJoin" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Aluno.sql" />
@@ -72,5 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\NotInBuild\ExemplosDaAula.sql" />
+    <None Include="dbo\ExemploJoin\TiposJoin.png" />
   </ItemGroup>
 </Project>
