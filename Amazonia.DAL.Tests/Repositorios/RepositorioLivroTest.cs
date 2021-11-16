@@ -1,6 +1,5 @@
 using Amazonia.DAL.Entidades;
 using Amazonia.DAL.Infraestrutura;
-using Amazonia.DAL.Repositorios;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;

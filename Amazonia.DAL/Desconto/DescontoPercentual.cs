@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Amazonia.DAL.Desconto
+﻿namespace Amazonia.DAL.Desconto
 {
     public class DescontoPercentual : IDesconto
     {
