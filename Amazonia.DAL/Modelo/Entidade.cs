@@ -7,7 +7,7 @@ namespace Amazonia.DAL.Modelo
     public abstract class Entidade
     {
         //[Key] // Desnecessario já que vamos optar por usar o mecanismo de Convenção (CoC)
-        //[Required] // Desnecessario já que vamos optar por usar o mecanismo de Convenção (CoC)
+        //[Required] // Desnecessario já que vamos optar por usar o mecanismo de Convenção (CoC) 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 

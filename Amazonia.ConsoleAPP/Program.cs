@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Amazonia.DAL.Modelo;
 using Amazonia.DAL.Repositorios;
 using Amazonia.DAL.Utils;
 
@@ -9,6 +10,20 @@ namespace Amazonia.ConsoleAPP
     {
         static void Main(string[] args)
         {
+            var ctx = new AmazoniaContexto();
+            ctx.Clientes.Add(new Cliente { 
+                UserName = "joao.silva",
+                DataNascimento = new DateTime(1984, 05, 29),
+                Nome = "João da Silva",
+                NumeroIdentificacaoFiscal = "123456789",
+                Password = "senha"
+            });
+            ctx.SaveChanges();
+
+
+
+
+
             var valorObtidoPeloMetodo = Exemplo.ObterValorDoConfig("chaveExemplo");
 
 
