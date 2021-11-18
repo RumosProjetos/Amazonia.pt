@@ -1,7 +1,7 @@
 ﻿using Amazonia.DAL.Desconto;
-using Amazonia.DAL.Entidades;
+using Amazonia.DAL.Modelo;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Amazonia.DAL.Repositorios
 {
@@ -23,9 +23,11 @@ namespace Amazonia.DAL.Repositorios
 
         public decimal AplicarDesconto(IDesconto tipoDeDesconto)
         {
-            var valorCalculado = Livros.Sum(x => x.ObterPreco()); //Trago o somatório de todos os livros (que tenham ou não descontos particulares)
-            var valorComDesconto = tipoDeDesconto.Aplicar(valorCalculado); //Cálculo com base na regra
-            return valorComDesconto;
+            //var valorCalculado = Livros.Sum(x => x.ObterPreco()); //Trago o somatório de todos os livros (que tenham ou não descontos particulares)
+            //var valorComDesconto = tipoDeDesconto.Aplicar(valorCalculado); //Cálculo com base na regra
+            //return valorComDesconto;
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
 
         public decimal CalcularPreco()
@@ -46,8 +48,11 @@ namespace Amazonia.DAL.Repositorios
 
 
             //Opcao3
-            var valorCalculado = Livros.Sum(x => x.ObterPreco());
-            return valorCalculado;
+            //var valorCalculado = Livros.Sum(x => x.ObterPreco());
+            //return valorCalculado;
+
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
     }
 }

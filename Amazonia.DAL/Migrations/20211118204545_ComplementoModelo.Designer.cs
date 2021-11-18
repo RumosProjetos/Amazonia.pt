@@ -4,20 +4,58 @@ using Amazonia.DAL.Modelo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Amazonia.DAL.Migrations
 {
     [DbContext(typeof(AmazoniaContexto))]
-    partial class AmazoniaContextoModelSnapshot : ModelSnapshot
+    [Migration("20211118204545_ComplementoModelo")]
+    partial class ComplementoModelo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Amazonia.DAL.Modelo.AudioLivro", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Autor")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DuracaoLivroEmMinutos")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FormatoFicheiro")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<int>("Idioma")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AudioLivros");
+                });
 
             modelBuilder.Entity("Amazonia.DAL.Modelo.Cliente", b =>
                 {
@@ -58,7 +96,7 @@ namespace Amazonia.DAL.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Amazonia.DAL.Modelo.Livro", b =>
+            modelBuilder.Entity("Amazonia.DAL.Modelo.LivroDigital", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,23 +111,71 @@ namespace Amazonia.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
+                    b.Property<string>("FormatoFicheiro")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
 
                     b.Property<int>("Idioma")
                         .HasColumnType("int");
+
+                    b.Property<string>("InformacoesLicenca")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<int>("TamanhoEmMB")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Livros");
+                    b.ToTable("LivroDigitals");
+                });
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Livro");
+            modelBuilder.Entity("Amazonia.DAL.Modelo.LivroImpresso", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("Altura")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Autor")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Idioma")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Largura")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<float>("Peso")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Profundidade")
+                        .HasColumnType("real");
+
+                    b.Property<int>("QuantidadePaginas")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LivroImpressos");
                 });
 
             modelBuilder.Entity("Amazonia.DAL.Modelo.Morada", b =>
@@ -125,70 +211,35 @@ namespace Amazonia.DAL.Migrations
                     b.ToTable("Moradas");
                 });
 
-            modelBuilder.Entity("Amazonia.DAL.Modelo.AudioLivro", b =>
-                {
-                    b.HasBaseType("Amazonia.DAL.Modelo.Livro");
-
-                    b.Property<int?>("DuracaoLivroEmMinutos")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FormatoFicheiro")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.HasDiscriminator().HasValue("AudioLivro");
-                });
-
-            modelBuilder.Entity("Amazonia.DAL.Modelo.LivroDigital", b =>
-                {
-                    b.HasBaseType("Amazonia.DAL.Modelo.Livro");
-
-                    b.Property<string>("FormatoFicheiro")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)")
-                        .HasColumnName("LivroDigital_FormatoFicheiro");
-
-                    b.Property<string>("InformacoesLicenca")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TamanhoEmMB")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("LivroDigital");
-                });
-
-            modelBuilder.Entity("Amazonia.DAL.Modelo.LivroImpresso", b =>
-                {
-                    b.HasBaseType("Amazonia.DAL.Modelo.Livro");
-
-                    b.Property<float>("Altura")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Largura")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Peso")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Profundidade")
-                        .HasColumnType("real");
-
-                    b.Property<int>("QuantidadePaginas")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("LivroImpresso");
-                });
-
             modelBuilder.Entity("Amazonia.DAL.Modelo.Periodico", b =>
                 {
-                    b.HasBaseType("Amazonia.DAL.Modelo.Livro");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Autor")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("DataLancamento")
                         .HasColumnType("datetime2");
 
-                    b.HasDiscriminator().HasValue("Periodico");
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Idioma")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Periodicos");
                 });
 
             modelBuilder.Entity("Amazonia.DAL.Modelo.Cliente", b =>

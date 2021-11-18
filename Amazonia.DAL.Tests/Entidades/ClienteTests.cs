@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Amazonia.DAL.Modelo;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Amazonia.DAL.Entidades.Tests
 {
@@ -14,11 +16,13 @@ namespace Amazonia.DAL.Entidades.Tests
                 NumeroIdentificacaoFiscal = "269234950"
             };
 
-            //Act
-            var nifValido = cliente.NifEstaValido();
+            ////Act
+            //var nifValido = cliente.NifEstaValido();
 
-            //Assert
-            Assert.IsTrue(nifValido);
+            ////Assert
+            //Assert.IsTrue(nifValido);
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
 
         [TestMethod]
@@ -30,11 +34,13 @@ namespace Amazonia.DAL.Entidades.Tests
                 NumeroIdentificacaoFiscal = "260697915"
             };
 
-            //Act
-            var nifValido = cliente.NifEstaValido();
+            ////Act
+            //var nifValido = cliente.NifEstaValido();
 
-            //Assert
-            Assert.IsTrue(nifValido);
+            ////Assert
+            //Assert.IsTrue(nifValido);
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
 
 
@@ -47,11 +53,13 @@ namespace Amazonia.DAL.Entidades.Tests
                 NumeroIdentificacaoFiscal = "269234951"
             };
 
-            //Act
-            var nifValido = cliente.NifEstaValido();
+            ////Act
+            //var nifValido = cliente.NifEstaValido();
 
-            //Assert
-            Assert.IsFalse(nifValido);
+            ////Assert
+            //Assert.IsFalse(nifValido);
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
 
 
@@ -64,11 +72,13 @@ namespace Amazonia.DAL.Entidades.Tests
                 NumeroIdentificacaoFiscal = "2692349500"
             };
 
-            //Act
-            var nifInvalido = !cliente.NifEstaValido();
+            ////Act
+            //var nifInvalido = !cliente.NifEstaValido();
 
-            //Assert
-            Assert.IsTrue(nifInvalido);
+            ////Assert
+            //Assert.IsTrue(nifInvalido);
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
 
 
@@ -81,11 +91,14 @@ namespace Amazonia.DAL.Entidades.Tests
                 NumeroIdentificacaoFiscal = "26923495"
             };
 
-            //Act
-            var nifInvalido = !cliente.NifEstaValido();
+            ////Act
+            //var nifInvalido = !cliente.NifEstaValido();
 
-            //Assert
-            Assert.IsTrue(nifInvalido);
+            ////Assert
+            //Assert.IsTrue(nifInvalido);
+
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
 
 
@@ -98,11 +111,13 @@ namespace Amazonia.DAL.Entidades.Tests
                 NumeroIdentificacaoFiscal = "111111111"
             };
 
-            //Act
-            var nifInvalido = !cliente.NifEstaValido();
+            ////Act
+            //var nifInvalido = !cliente.NifEstaValido();
 
-            //Assert
-            Assert.IsTrue(nifInvalido);
+            ////Assert
+            //Assert.IsTrue(nifInvalido);
+
+            throw new NotImplementedException("FAlta mover para o local correto");
         }
     }
 }

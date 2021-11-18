@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Amazonia.DAL.Entidades;
 using System;
 using Amazonia.DAL.Desconto;
 using System.Configuration;
+using Amazonia.DAL.Modelo;
 
 namespace Amazonia.DAL.Repositorios.Tests
 {

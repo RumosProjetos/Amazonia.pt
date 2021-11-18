@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Amazonia.DAL.Entidades;
 using System;
 using System.Linq;
 using Amazonia.DAL.Infraestrutura;
+using Amazonia.DAL.Modelo;
 
 namespace Amazonia.DAL.Repositorios
 {
