@@ -12,6 +12,7 @@ namespace Amazonia.DAL.Modelo
         public DbSet<LivroDigital> LivroDigitals { get; set; }
         public DbSet<LivroImpresso> LivroImpressos { get; set; }
         public DbSet<Periodico> Periodicos { get; set; }
+        public DbSet<Venda> Vendas { get; set; }
 
 
 

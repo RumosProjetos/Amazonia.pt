@@ -16,5 +16,6 @@ namespace Amazonia.DAL.Modelo
         {
             return  $"{base.ToString()} Formato Ficheiro: {FormatoFicheiro} => Duracao: {DuracaoLivroEmMinutos} ";
         }
+
     }
 }
