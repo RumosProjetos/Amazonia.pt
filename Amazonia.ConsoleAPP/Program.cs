@@ -13,8 +13,17 @@ namespace Amazonia.ConsoleAPP
     {
         static void Main(string[] args)
         {
+          //  ExemploJSON.Carregar();
+            ExemploJSON.CriarArquivoNovo();
+
+
+
             var ctx = new AmazoniaContexto();
-            PlaygroundLinq(ctx);
+
+            ProjecaoDadosEspecificos(ctx);
+
+
+            //PlaygroundLinq(ctx);
             return;  //GuardCondition
 
 
@@ -80,12 +89,6 @@ namespace Amazonia.ConsoleAPP
             var clientesMoramPortoComDadosMorada = ctx.Clientes.Include("Morada").Where(x => x.Morada.Localidade == "Porto").ToList();
 
 
-            AGRUPAMENTO
-                //count
-                //sum
-                //avg
-                //max
-                //min
 
 
             var clientesQueMoramPortoSQLRaw = ctx.Clientes
@@ -182,6 +185,62 @@ namespace Amazonia.ConsoleAPP
 
         private static void ProjecaoDadosEspecificos(AmazoniaContexto ctx)
         {
+
+            //AGRUPAMENTO
+            //count
+            var contagemGeral = ctx.Livros.Count();
+            var contagemAgrupadoPorNome = ctx.Livros
+                                                .AsEnumerable()
+                                                .GroupBy(x => x.Nome)                                                
+                                                .Select(ex => 
+                                                    new {    
+                                                        NomeLivro = ex.FirstOrDefault().Nome,
+                                                        Contagem = ex.Count()
+                                                    });
+            foreach (var item in contagemAgrupadoPorNome)
+            {
+                Console.WriteLine($"Nome : {item.NomeLivro} - Contagem: {item.Contagem}");
+            }
+
+
+
+
+
+            var contagemAgrupadoPorNomeEAutor = ctx.Livros
+                                             .GroupBy(x => new
+                                             {
+                                                 x.Nome,
+                                                 x.Autor
+                                             })
+                                             .Select(ex =>
+                                                 new {
+                                                     NomeLivro = ex.FirstOrDefault().Nome,
+                                                     NomeAutor = ex.FirstOrDefault().Autor,
+                                                     Contagem = ex.Count()
+                                                 });
+
+            //sum
+            var somatorioDoVolumeDosLivros = ctx.LivroImpressos
+                                         .GroupBy(x => x.Nome)
+                                         .Select(ex =>
+                                             new {
+                                                 NomeLivro = ex.FirstOrDefault().Nome,
+                                                 Somatorio = ex.Sum(x => x.ObterVolume())
+                                             });
+
+            //avg //max //Min
+            var mediaDoVolumeDosLivros = ctx.LivroImpressos
+                                         .GroupBy(x => x.Nome)
+                                         .Select(ex =>
+                                             new {
+                                                 NomeLivro = ex.FirstOrDefault().Nome,
+                                                 Somatorio = ex.Average(x => x.ObterVolume()),
+                                                 LivroMaiorVolume = ex.Max(x => x.ObterVolume()),
+                                                 LivroMaisLeve = ex.Min(x => x.Peso)
+                                             });
+
+
+
 
             //
             /*
