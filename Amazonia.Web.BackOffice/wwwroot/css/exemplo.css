@@ -1,0 +1,21 @@
+﻿body {
+}
+
+
+h1{
+    color: red;
+    background-color: magenta;
+    border:10px solid red;    
+}
+
+
+.classeEspecifica{
+    font: bold 18px sophia, verdana;
+    rotation: 45deg;
+    color:brown
+}
+
+#paragrafoEspecifico{
+    color:green;
+}
+
