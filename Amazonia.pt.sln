@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.DAL.Tests", "Amazo
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Amazonia.Database", "Amazonia.Database\Amazonia.Database.sqlproj", "{5FFF90C2-0CE1-4DCE-83E9-A6CE83399099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.Web.BackOffice", "Amazonia.Web.BackOffice\Amazonia.Web.BackOffice.csproj", "{AA0B64D4-7DE0-49C3-9654-51314B7E7019}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.Web.Playground", "Amazonia.Web.BackOffice\Amazonia.Web.Playground.csproj", "{AA0B64D4-7DE0-49C3-9654-51314B7E7019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.Web.BackOfficeHtml", "Amazonia.Web.BackOfficeHtml\Amazonia.Web.BackOfficeHtml.csproj", "{94803AEC-CD7F-4461-9B0F-591D42DDF832}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{AA0B64D4-7DE0-49C3-9654-51314B7E7019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0B64D4-7DE0-49C3-9654-51314B7E7019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0B64D4-7DE0-49C3-9654-51314B7E7019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94803AEC-CD7F-4461-9B0F-591D42DDF832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94803AEC-CD7F-4461-9B0F-591D42DDF832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94803AEC-CD7F-4461-9B0F-591D42DDF832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94803AEC-CD7F-4461-9B0F-591D42DDF832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
