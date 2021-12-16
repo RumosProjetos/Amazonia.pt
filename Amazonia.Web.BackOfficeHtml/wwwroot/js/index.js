@@ -1,10 +1,35 @@
 ﻿function AtualizarValoresPaineis() {
-    //TODO: Buscar informação da webapi
-    $("#lblNumeroVendas").text("0");
+    //TODO: Buscar informação da webapi    
     $("#lblNumeroVendasCanceladas").text("0");
     $("#lblClientesNovos").text("0");
     $("#lblLivrosAesgotar").text("0");
+
+    AtualizarNumeroVendas();
+
 }
+
+function AtualizarNumeroVendas() {
+
+
+    var settings = {
+        'cache': false,
+        'dataType': "jsonp",
+        "async": false,
+        "crossDomain": true,
+        "url": "https://localhost:44381/api/Vendas",
+        "method": "GET",
+        "headers": {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        $("#lblNumeroVendas").text(response);
+    });
+}
+
+
 
 
 $(document).ready(function () {

@@ -1,11 +1,9 @@
 ﻿using Amazonia.DAL.Modelo;
 using Amazonia.WebApi.Dto;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Amazonia.WebApi.Controllers
 {
@@ -53,9 +51,40 @@ namespace Amazonia.WebApi.Controllers
             livroNovo.Descricao = livro.Descricao;
 
             ctx.Livros.Add(livroNovo);
+            //ctx.SaveChanges();
             return livroNovo.Id;
         }
+
+        [HttpDelete]
+        public bool DeleteLivro(Guid id)
+        {
+            var livro = ctx.Livros.FirstOrDefault(x => x.Id == id);
+            if(livro == null)
+            {
+                return false;
+            }
+
+            ctx.Livros.Remove(livro);
+            ctx.SaveChanges();
+            return true;
+        }
+
+
+        [HttpPut]
+        public bool UpdateLivro(Guid id, LivroDto dadosLivro)
+        {
+            var livro = ctx.Livros.FirstOrDefault(x => x.Id == id);
+            if (livro == null)
+            {
+                return false;
+            }
+
+            livro.Nome = dadosLivro.Nome;
+            livro.Autor = dadosLivro.Autor;
+            livro.Descricao = dadosLivro.Descricao;
+
+            ctx.SaveChanges();
+            return true;
+        }
     }
-
-
 }

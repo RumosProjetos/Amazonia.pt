@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net.Http;
 using Amazonia.DAL.Modelo;
 using Amazonia.DAL.Repositorios;
 using Amazonia.DAL.Utils;
@@ -13,7 +14,17 @@ namespace Amazonia.ConsoleAPP
     {
         static void Main(string[] args)
         {
-          //  ExemploJSON.Carregar();
+            var client = new HttpClient();
+            var resultado = client.GetAsync("https://localhost:44381/api/Cliente/Maria").Result;
+            var conteudo = resultado.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(conteudo);
+
+            return;
+
+
+
+
+            //  ExemploJSON.Carregar();
             ExemploJSON.CriarArquivoNovo();
 
 
