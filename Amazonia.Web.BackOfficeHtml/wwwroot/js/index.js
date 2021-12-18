@@ -50,11 +50,58 @@ function AtualizarGraficoVendas() {
 
 
 function AtualizarGraficoClientes() {
-    $("#imgGraficoClientesNovos").text("Oi Grafico Clientes Novos");
+    google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(CarregarDadosDoGraficoClientes);
+
+    function CarregarDadosDoGraficoClientes() {
+
+        //Carregar a partir da webapi
+        var data = google.visualization.arrayToDataTable([
+            ['Dia', ''],
+            ['Domingo', 512],
+            ['Segunda', 1170],
+            ['Terça', 21],
+            ['Quarta', 100],
+            ['Quinta', 354],
+            ['Sexta', 100],
+            ['Sábado', 660],
+        ]);
+
+
+        var options = {
+            chart: {
+                title: 'Clientes Novos'
+            }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('imgGraficoClientesNovos'));
+        chart.draw(data, options);
+    }
 }
 
 function AtualizarGraficoEstoque() {
-    $("#imgGraficoEstoqueLivros").text("Oi Grafico Estoque");
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(CarregarDadosDoGraficoEstoque);
+
+
+    function CarregarDadosDoGraficoEstoque() {
+        //Valor carregado a partir da webapi
+        var data = google.visualization.arrayToDataTable([
+            ['Livro', 'Quantidade Disponível'],
+            ['Harry Potter', 101],
+            ['O Senhor do Anéis', 20],
+            ['As Crônicas de Gelo e Fogo', 57],
+            ['Eragon', 28],
+            ['As Crônicas de Nárnia', 70]
+        ]);
+
+        var options = {
+            title: 'Livros em Estoque'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('imgGraficoEstoqueLivros'));
+        chart.draw(data, options);
+    }
 }
 
 
