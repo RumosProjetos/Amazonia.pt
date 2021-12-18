@@ -4,7 +4,7 @@ $(document).ready(function () {
     AtivarMenuNavegacao(menu);
    
     $('#tblProdutos').DataTable({
-        "ajax": "ExemploDados.txt",
+        "ajax": "js/ExemploDados.txt",
         "columns": [
             { "data": "nome" },
             { "data": "autor" },

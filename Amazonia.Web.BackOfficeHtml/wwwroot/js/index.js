@@ -142,7 +142,7 @@ function ExibirPainelDeLogin() {
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: `${result.value.login}'s avatar`,
+                title: 'Logado com sucesso',
                 imageUrl: result.value.avatar_url
             })
         }
