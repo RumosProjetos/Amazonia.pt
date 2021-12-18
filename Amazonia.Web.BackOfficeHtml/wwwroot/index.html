@@ -35,7 +35,6 @@
     </nav>
 
     <div class="container">
-
         <div class="jumbotron">
             <h1 class="display-3" data-unsp-sanitized="clean">DashBoard!</h1>
             <p class="lead">Cadastro de Produtos e Relatório de Vendas do Amazonia.PT.</p>
@@ -48,21 +47,16 @@
                     <div class="card-header with-border clearfix">
                         <div class="card-title">
                             <i class="far fa-chart-bar"></i>
-                            Pontos de Observação
-                        </div>
-                        <div class="card-tools float-right">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
+                            Dados da Semana
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3 col-6">
-                                <div class="small-box bg-info">
+                                <div class="small-box bg-yellow">
                                     <div class="inner">
                                         <h3 data-unsp-sanitized="clean" id="lblNumeroVendas">5</h3>
-                                        <p>Vendas</p>
+                                        <p>Vendas Concretizadas</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
@@ -82,7 +76,7 @@
                                     <div class="icon">
                                         <i class="ion ion-refresh"></i>
                                     </div>
-                                    <a class="small-box-footer" href="/Admin/ReturnRequest/List" data-unsp-sanitized="clean">
+                                    <a class="small-box-footer" href="#" data-unsp-sanitized="clean">
                                         Mais informações
                                         <i class="fas fa-arrow-circle-right"></i>
                                     </a>
@@ -97,7 +91,7 @@
                                     <div class="icon">
                                         <i class="ion ion-person-add"></i>
                                     </div>
-                                    <a class="small-box-footer" href="/Admin/Customer/List" data-unsp-sanitized="clean">
+                                    <a class="small-box-footer" href="#" data-unsp-sanitized="clean">
                                         Mais informações
                                         <i class="fas fa-arrow-circle-right"></i>
                                     </a>
@@ -107,12 +101,12 @@
                                 <div class="small-box bg-red">
                                     <div class="inner">
                                         <h3 data-unsp-sanitized="clean" id="lblLivrosAesgotar">1</h3>
-                                        <p>Livros a esgotar</p>
+                                        <p>Produtos com Estoque Baixo</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-pie-graph"></i>
                                     </div>
-                                    <a class="small-box-footer" href="/Admin/Report/LowStock" data-unsp-sanitized="clean">
+                                    <a class="small-box-footer" href="#" data-unsp-sanitized="clean">
                                         Mais informações
                                         <i class="fas fa-arrow-circle-right"></i>
                                     </a>
@@ -120,22 +114,28 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div id="imgGraficoVendas"></div>
-            </div>
-            <div class="col-lg-3">
-                <div id="imgGraficoClientesNovos"> </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="imgGraficoEstoqueLivros"> </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="imgGraficoVendas"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="imgGraficoClientesNovos"> </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="imgGraficoEstoqueLivros"> </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <div class="text-center p-4">
+            © 2021 Copyright: <a class="text-reset fw-bold" href="#">Amazonia.PT</a>
+        </div>
+    </footer>
 </body>
 </html>

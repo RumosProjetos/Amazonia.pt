@@ -30,16 +30,8 @@ function AtualizarGraficoVendas() {
         ]);
 
 
+        
         var options = {
-            title: 'Company Performance',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-        };
-
-        var options = {
-            chart: {
-                title: 'Vendas dos Últimos 7 dias'
-            },
             curveType: 'function',
             legend: { position: 'bottom' }
         };
@@ -71,9 +63,8 @@ function AtualizarGraficoClientes() {
 
 
         var options = {
-            chart: {
-                title: 'Clientes Novos'
-            }
+            curveType: 'function',
+            legend: { position: 'none'}
         };
 
         var chart = new google.charts.Bar(document.getElementById('imgGraficoClientesNovos'));
@@ -99,7 +90,7 @@ function AtualizarGraficoEstoque() {
 
 
         var options = {
-            title: 'Livros em Estoque'
+            legend: { position: 'bottom'}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('imgGraficoEstoqueLivros'));
