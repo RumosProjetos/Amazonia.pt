@@ -12,7 +12,7 @@
 
 function AtualizarGraficoVendas() {
     //Exibe as vendas do último mês num histograma de frequências (Gráfico de Barras)
-    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(CarregarDadosDoGrafico);
 
 
@@ -31,19 +31,21 @@ function AtualizarGraficoVendas() {
 
 
         var options = {
+            title: 'Company Performance',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var options = {
             chart: {
                 title: 'Vendas dos Últimos 7 dias'
             },
-            hAxis: {
-                title: 'Dia do Mês',                
-            },
-            vAxis: {
-                title: 'Número Total de Vendas'
-            }
+            curveType: 'function',
+            legend: { position: 'bottom' }
         };
 
-        var materialChart = new google.charts.Bar(document.getElementById('imgGraficoVendas'));
-        materialChart.draw(data, options);
+        var chart = new google.visualization.LineChart(document.getElementById('imgGraficoVendas'));
+        chart.draw(data, options);
     }
 }
 
@@ -94,6 +96,7 @@ function AtualizarGraficoEstoque() {
             ['Eragon', 28],
             ['As Crônicas de Nárnia', 70]
         ]);
+
 
         var options = {
             title: 'Livros em Estoque'
