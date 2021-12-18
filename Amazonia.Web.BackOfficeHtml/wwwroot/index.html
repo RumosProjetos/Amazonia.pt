@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/BackOffice.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
@@ -27,8 +28,8 @@
                     <li class="nav-item">
                         <a class="nav-link" id="navRelatorios" href="relatorios.html" data-unsp-sanitized="clean">Relatórios</a>
                     </li>
-                </ul>                
-                <input class="btn btn-secondary my-2 my-sm-0" type="button" value="Login" id="btnLogin"/>
+                </ul>
+                <input class="btn btn-secondary my-2 my-sm-0" type="button" value="Login" id="btnLogin" />
             </div>
         </div>
     </nav>
@@ -115,11 +116,23 @@
                                 </a>
                             </div>
                         </div>
-                      
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="imgGraficoVendas"></div>
+        </div>
+        <div class="col-lg-3">
+            <div id="imgGraficoClientesNovos"> </div>
+        </div>
+        <div class="col-lg-3">
+            <div id="imgGraficoEstoqueLivros"> </div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -6,7 +6,6 @@ namespace Amazonia.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("QualquerCliente")]
     public class VendasController : ControllerBase
     {
         [HttpGet]

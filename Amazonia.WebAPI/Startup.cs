@@ -20,23 +20,15 @@ namespace Amazonia.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                                                                     .AllowAnyMethod()
+                                                                      .AllowAnyHeader()));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Amazonia.WebApi", Version = "v1" });
             });
-
-
-            //Cuidado, falaremos disso no MVC
-            services.AddCors(options =>
-            {
-                options.AddPolicy("QualquerCliente",
-                    builder =>
-                    {
-                        builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
-                    });
-            });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +45,7 @@ namespace Amazonia.WebApi
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 
