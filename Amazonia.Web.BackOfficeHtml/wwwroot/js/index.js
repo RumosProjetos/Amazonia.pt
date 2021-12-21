@@ -4,6 +4,8 @@
     $("#lblNumeroVendasCanceladas").text("0");
     $("#lblClientesNovos").text("0");
     $("#lblLivrosAesgotar").text("0");
+
+    AtualizarNumeroVendas();
 }
 
 
@@ -152,22 +154,28 @@ function ExibirPainelDeLogin() {
 
 
 
-//function AtualizarNumeroVendas() {
+function AtualizarNumeroVendas() {
+    var settings = {
+        url: 'https://localhost:44381/api/Vendas',
+        method: 'GET'
+    };
 
-//    var settings = {
-//        'cache': false,
-//        'dataType': "jsonp",
-//        "async": false,
-//        "crossDomain": true,
-//        "url": "https://localhost:44381/api/Vendas",
-//        "method": "GET",
-//        "headers": {
-//            "accept": "application/json",
-//            "Access-Control-Allow-Credentials" : "true"
-//        }
-//    }
+    $.ajax(settings).done(function (response) {
+        console.debug(response);
+        $("#lblNumeroVendas").text(response);
+    });
 
-//    $.ajax(settings).done(function (response) {
-//        $("#lblNumeroVendas").text(response);
-//    });
-//}
+
+
+    //Solução do Nuno!!! Funciona
+    //$.ajax({
+    //    url: "https://localhost:44381/api/Vendas",
+    //    type: "GET",
+    //}).done(function (responseText) {
+    //    console.log("ajax Success: status", responseText);
+    //    $("#lblNumeroVendas").text(responseText);
+    //}).fail(function (responseText) {
+    //    console.error(responseText);
+    //    $("#lblNumeroVendas").text("NOK");
+    //});
+}
