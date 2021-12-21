@@ -86,7 +86,8 @@ namespace Amazonia.WebApi.Controllers
             livroNovo.Descricao = livro.Descricao;
 
             ctx.Livros.Add(livroNovo);
-            //ctx.SaveChanges();
+            ctx.SaveChanges();
+                        
             return livroNovo.Id;
         }
 
