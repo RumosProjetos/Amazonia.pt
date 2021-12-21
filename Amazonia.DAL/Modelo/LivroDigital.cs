@@ -1,6 +1,7 @@
 
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Amazonia.DAL.Modelo
 {
@@ -24,6 +25,8 @@ namespace Amazonia.DAL.Modelo
             return $"Livro Digital: " + base.ToString() + $"Informacoes Licenca: {InformacoesLicenca}";
         }
 
+        [NotMapped]
+        public override string TipoPorEscrito => "Digital";
 
         /*
          if(entre 30 e 60 dias valor desconto = 10)

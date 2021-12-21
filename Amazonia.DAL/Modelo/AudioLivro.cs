@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Amazonia.DAL.Modelo
 {
@@ -16,6 +17,9 @@ namespace Amazonia.DAL.Modelo
         {
             return  $"{base.ToString()} Formato Ficheiro: {FormatoFicheiro} => Duracao: {DuracaoLivroEmMinutos} ";
         }
+
+        [NotMapped]
+        public override string TipoPorEscrito => "Áudio Livro";
 
     }
 }

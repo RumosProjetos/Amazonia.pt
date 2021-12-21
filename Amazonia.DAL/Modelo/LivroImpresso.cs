@@ -40,5 +40,8 @@ namespace Amazonia.DAL.Modelo
         {
             return $"Livro Impresso: {Nome}";
         }
+
+        [NotMapped]
+        public override string TipoPorEscrito => "Impresso";
     }
 }

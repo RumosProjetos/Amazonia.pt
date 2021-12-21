@@ -10,15 +10,17 @@ $(document).ready(function () {
         language: {
             url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
         },
-        "ajax": "js/ExemploDados.txt",
+        "ajax": "https://localhost:44381/api/Livro",
         "columns": [
             { "data": "id" },
             { "data": "nome" },
             { "data": "autor" },
-            { "data": "tipo" },            
+            { "data": "tipoLivro" },
             { "data": "idioma" },
-            { "data": "quantidade" },
-            { "defaultContent": "<a href='#'>Editar Detalhes</a>"}
+            { "data": "quantidadeEmEstoque" },
+            { "defaultContent": "<a href='#'>Editar Detalhes</a>" }
         ]
     });
 });
+
+

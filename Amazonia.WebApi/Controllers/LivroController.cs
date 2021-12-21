@@ -1,4 +1,6 @@
-﻿using Amazonia.DAL.Modelo;
+﻿using Amazonia.DAL;
+using Amazonia.DAL.Modelo;
+using Amazonia.WebApi.Conversores;
 using Amazonia.WebApi.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,10 +19,43 @@ namespace Amazonia.WebApi.Controllers
             ctx = new AmazoniaContexto();
         }
 
-        [HttpGet]
-        public List<Livro> GetLivros()
+         [HttpGet]
+        public DataTableResponse GetLivros()
         {
-            return ctx.Livros.ToList();
+            var livros = ctx.Livros.ToList();
+            var livrosDto = new List<LivroDto>();
+
+            //Da forma antiga
+            foreach (var item in livros)
+            {
+                var dtoTemp = LivroAdapter.ConverterLivroEmDto(item);
+                livrosDto.Add(dtoTemp);
+            }
+
+
+            //Com LINQ - Também funciona
+            //var livrosDto =  livros.Select(x => new List<LivroDto>
+            //{
+            //    new LivroDto
+            //    {
+            //        Autor = x.Autor,
+            //        Id = x.Id,
+            //        Formato = x.TipoPorEscrito,
+            //        Nome = x.Nome,
+            //        QuantidadeEmEstoque = new Random().Next(),
+            //        Idioma = LivroAdapter.ObterIdiomaLivro(x.Idioma)
+            //    }
+            //});
+
+            //TODO: No futuro trocar para Automapper
+
+
+            return new DataTableResponse
+            {
+                RecordsTotal = livrosDto.Count,
+                RecordsFiltered = 10,
+                Data = livrosDto.ToArray()
+            };
         }
 
         [HttpGet("{id}")]
@@ -59,7 +94,7 @@ namespace Amazonia.WebApi.Controllers
         public bool DeleteLivro(Guid id)
         {
             var livro = ctx.Livros.FirstOrDefault(x => x.Id == id);
-            if(livro == null)
+            if (livro == null)
             {
                 return false;
             }

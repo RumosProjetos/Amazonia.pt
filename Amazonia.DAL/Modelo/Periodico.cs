@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Amazonia.DAL.Modelo
 {
@@ -16,12 +17,16 @@ namespace Amazonia.DAL.Modelo
         [Required]
         public DateTime DataLancamento { get; set; }
 
+
+        [NotMapped]
+        public override string TipoPorEscrito => "Periódico";
+
         //public override decimal ObterPreco()
         //{
         //    var valorCalculado = base.ObterPreco();
         //    var percentualDesconto = 0M;
         //    var ativarPromocoes = Convert.ToBoolean(ConfigurationManager.AppSettings["ativarPromocoes"]);
-            
+
 
         //    if (ativarPromocoes)
         //    {

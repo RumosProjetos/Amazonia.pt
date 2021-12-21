@@ -26,6 +26,10 @@ namespace Amazonia.DAL.Modelo
         //{
         //    Preco = precoSemDesconto;
         //}
+
+
+        [NotMapped]
+        public virtual string TipoPorEscrito => "Não Informado";
     }
 }
 
