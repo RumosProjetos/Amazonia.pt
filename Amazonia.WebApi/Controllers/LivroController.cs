@@ -1,5 +1,4 @@
-﻿using Amazonia.DAL;
-using Amazonia.DAL.Modelo;
+﻿using Amazonia.DAL.Modelo;
 using Amazonia.WebApi.Conversores;
 using Amazonia.WebApi.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +12,7 @@ namespace Amazonia.WebApi.Controllers
     [ApiController]
     public class LivroController : ControllerBase
     {
-        AmazoniaContexto ctx;
+        private readonly AmazoniaContexto ctx;
         public LivroController()
         {
             ctx = new AmazoniaContexto();
