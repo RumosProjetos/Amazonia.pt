@@ -65,6 +65,7 @@ namespace Amazonia.DAL.Repositorios
                             .Where(x => x.Nome == Nome)
                             .OrderByDescending(x => x.Idade)
                             .FirstOrDefault();
+
             return resultado;
         }
 
@@ -90,11 +91,17 @@ namespace Amazonia.DAL.Repositorios
                     .ToList();
             return resultado;
         }
-        /*
-        Select top 10 * from Cliente
 
-        Select * from cliente where rowno < 10        
-        */
+        public Cliente ObterPorNif(string numeroIdentificacaoFiscal)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
+Select top 10 * from Cliente
+
+Select * from cliente where rowno < 10        
+*/
 
 
         public List<Cliente> ObterTodosQueTenhamPeloMenos18AnosENomeComecePor(string comeco)

@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.Web.BackOfficeHtml
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.WebApi", "Amazonia.WebApi\Amazonia.WebApi.csproj", "{2C5BFE9A-4A76-474B-BD16-43CFD85B6CB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.eCommerceRazor", "Amazonia.eCommerceRazor\Amazonia.eCommerceRazor.csproj", "{B699CA94-2A00-435F-8BAC-4957979CDA8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.eCommerceRazor", "Amazonia.eCommerceRazor\Amazonia.eCommerceRazor.csproj", "{B699CA94-2A00-435F-8BAC-4957979CDA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.Web.WebForms", "Amazonia.Web.WebForms\Amazonia.Web.WebForms.csproj", "{95398825-5ABB-4DB9-8359-991CE0100674}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{B699CA94-2A00-435F-8BAC-4957979CDA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B699CA94-2A00-435F-8BAC-4957979CDA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B699CA94-2A00-435F-8BAC-4957979CDA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95398825-5ABB-4DB9-8359-991CE0100674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95398825-5ABB-4DB9-8359-991CE0100674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95398825-5ABB-4DB9-8359-991CE0100674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95398825-5ABB-4DB9-8359-991CE0100674}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using Amazonia.DAL.Modelo;
 using Amazonia.DAL.Repositorios;
 using Amazonia.WebApi.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Amazonia.WebApi.Controllers
         /// Listagem de Clientes
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet]        
         public List<Cliente> GetClientes()
         {
             return repo.ObterTodos();
@@ -76,6 +77,46 @@ namespace Amazonia.WebApi.Controllers
             }
 
             repo.Atualizar(nome, dadosNovos.Nome);
+            return true;
+        }
+
+        ////http://localhost:8080/api/cliente/janeiro/obterclientes
+        //[HttpGet]
+        //[Route("api/[controller]/{Mes}/ObterClientes")]
+        //public Dictionary<string, int> ObterQuantidadeClientesNovo(string Mes)
+        //{
+        //    var result = new Dictionary<string, int>
+        //    {
+        //        { "Domingo", 10 },
+        //        { "Segunda", 11 }
+        //    };
+
+        //    return result;
+        //}
+
+
+
+        [HttpPost] //Upsert
+        public bool UpdateOrInsertClienteComMorada(ClienteMoradaDto dadosNovos)
+        {
+            Cliente cli = repo.ObterPorNif(dadosNovos.NumeroIdentificacaoFiscal);
+            if (cli == null)
+            {
+                cli = new Cliente {
+                    Nome = dadosNovos.Nome, 
+                    NumeroIdentificacaoFiscal = dadosNovos.NumeroIdentificacaoFiscal ,
+                    /*Demais campos*/
+                };             
+            }
+
+            cli.Morada = new Morada { 
+                Distrito = dadosNovos.Distrito /**/
+            };
+
+            repo.Criar(cli);
+
+
+            //repo.Atualizar(nome, dadosNovos.Nome);
             return true;
         }
     }
