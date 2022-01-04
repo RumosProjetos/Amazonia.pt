@@ -96,28 +96,31 @@ namespace Amazonia.WebApi.Controllers
 
 
 
-        //[HttpPost] //Upsert
-        //public bool UpdateOrInsertClienteComMorada(ClienteMoradaDto dadosNovos)
-        //{
-        //    Cliente cli = repo.ObterPorNif(dadosNovos.NumeroIdentificacaoFiscal);
-        //    if (cli == null)
-        //    {
-        //        cli = new Cliente {
-        //            Nome = dadosNovos.Nome, 
-        //            NumeroIdentificacaoFiscal = dadosNovos.NumeroIdentificacaoFiscal ,
-        //            /*Demais campos*/
-        //        };             
-        //    }
+        [HttpPost] //Upsert
+        [Route("api/DadosNovos")]
+        public bool UpdateOrInsertClienteComMorada(ClienteMoradaDto dadosNovos)
+        {
+            Cliente cli = repo.ObterPorNif(dadosNovos.NumeroIdentificacaoFiscal);
+            if (cli == null)
+            {
+                cli = new Cliente
+                {
+                    Nome = dadosNovos.Nome,
+                    NumeroIdentificacaoFiscal = dadosNovos.NumeroIdentificacaoFiscal,
+                    /*Demais campos*/
+                };
+            }
 
-        //    cli.Morada = new Morada { 
-        //        Distrito = dadosNovos.Distrito /**/
-        //    };
+            cli.Morada = new Morada
+            {
+                Distrito = dadosNovos.Distrito /**/
+            };
 
-        //    repo.Criar(cli);
+            repo.Criar(cli);
 
 
-        //    //repo.Atualizar(nome, dadosNovos.Nome);
-        //    return true;
-        //}
+            //repo.Atualizar(nome, dadosNovos.Nome);
+            return true;
+        }
     }
 }
