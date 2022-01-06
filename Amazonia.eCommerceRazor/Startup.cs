@@ -40,14 +40,14 @@ namespace Amazonia.eCommerceRazor
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHistorico logger)
         {
-            logger.Guardar("Oi mundo - Hora que a App iniciou");
+            //logger.Guardar("Oi mundo - Hora que a App iniciou");
 
-            //app.Use não é Short Circuit, a execução continua com o next.Invoke
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync($"{Environment.NewLine} Hello World - App.Use");
-                await next.Invoke();
-            });
+            ////app.Use não é Short Circuit, a execução continua com o next.Invoke
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync($"{Environment.NewLine} Hello World - App.Use");
+            //    await next.Invoke();
+            //});
 
 
 

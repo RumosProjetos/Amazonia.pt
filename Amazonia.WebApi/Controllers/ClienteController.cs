@@ -97,7 +97,7 @@ namespace Amazonia.WebApi.Controllers
 
 
         [HttpPost] //Upsert
-        [Route("api/DadosNovos")]
+        [Route("DadosNovos")]
         public bool UpdateOrInsertClienteComMorada(ClienteMoradaDto dadosNovos)
         {
             Cliente cli = repo.ObterPorNif(dadosNovos.NumeroIdentificacaoFiscal);

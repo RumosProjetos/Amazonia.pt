@@ -39,3 +39,15 @@
 
 
 @StringUtils.FirstCharToUpper("o rato roeu...");
+
+
+@*
+@for (var i = 0; i < ViewBag.Exemplo.Length ; i++)
+{
+    
+};*@
+
+@foreach (Person item in ViewBag.Exemplo)
+{
+    <p> @item.Name; </p>
+}
