@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32014.148
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.BLL", "Amazonia.BLL\Amazonia.BLL.csproj", "{461FAE6E-6E0D-42A4-88A7-95A9706C2F4C}"
 EndProject
@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.eCommerceRazor", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.Web.WebForms", "Amazonia.Web.WebForms\Amazonia.Web.WebForms.csproj", "{95398825-5ABB-4DB9-8359-991CE0100674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.ConsoleApp.Playground", "Amazonia.ConsoleApp.Playground\Amazonia.ConsoleApp.Playground.csproj", "{6949663C-15CB-4695-BD1F-BF1341C775F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.ConsoleApp.Playground", "Amazonia.ConsoleApp.Playground\Amazonia.ConsoleApp.Playground.csproj", "{6949663C-15CB-4695-BD1F-BF1341C775F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
