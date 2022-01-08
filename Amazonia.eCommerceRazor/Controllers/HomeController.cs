@@ -26,6 +26,7 @@ namespace Amazonia.eCommerceRazor.Controllers
         public IActionResult Index()
         {
             historico.Guardar("Index");
+            ViewBag.Exemplo = new List<Person>();
             return View();
         }
 
