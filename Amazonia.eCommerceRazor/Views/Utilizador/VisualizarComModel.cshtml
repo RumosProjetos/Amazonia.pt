@@ -1,0 +1,17 @@
+﻿@model Utilizador
+
+<h1>Dados do Utilizador para Visualizacao com ViewModel</h1>
+
+<p id="remark">The first way to pass a model from an action to a view</p>
+<div>
+    <p><b>Nome</b>: @Model.Nome</p>
+    <hr />
+
+    <p><b>Login do User</b>: @Model.Login</p>
+    <hr />
+</div>
+
+
+<hr />
+<p id="remark">Outra forma de obter o ViewModel</p>
+@Html.EditorForModel()

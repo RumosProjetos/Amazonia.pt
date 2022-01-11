@@ -9,7 +9,7 @@ namespace Amazonia.eCommerceRazor.Controllers
 {
     public class LivroController : Controller
     {
-        List<Livro> livros;
+        readonly List<Livro> livros;
 
         public LivroController()
         {

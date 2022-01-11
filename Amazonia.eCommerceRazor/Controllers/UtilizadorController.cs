@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Amazonia.eCommerceRazor.Controllers
 {
-    public class UtilizadorController : Controller
+    public partial class UtilizadorController : Controller
     {
         private readonly List<Utilizador> utilizadores;
         public UtilizadorController()
@@ -18,9 +18,9 @@ namespace Amazonia.eCommerceRazor.Controllers
             utilizadores = new List<Utilizador>
             {
                 //xxcvxcvd
-                new Utilizador{ Id = Guid.NewGuid(), Login = "joao.silva", Nome = "João da Silva", PalavraPasse = "e7c66e055c714df32c6a3f60e1aa7eba"},
+                new Utilizador{ Id = Guid.NewGuid(), Login = "joao.silva", Nome = "João da Silva", PalavraPasse = "e7c66e055c714df32c6a3f60e1aa7eba", Ativo = true, Sexo = SexoEnum.Masculino, ContagemDeLoginNoUltimoAno = 10},
                 //palavra
-                new Utilizador{ Id = Guid.NewGuid(), Login = "maria.sousa", Nome = "Maria de Sousa", PalavraPasse = "3900cf077ad01720b5f7ab5674d392fb"},
+                new Utilizador{ Id = Guid.NewGuid(), Login = "maria.sousa", Nome = "Maria de Sousa", PalavraPasse = "3900cf077ad01720b5f7ab5674d392fb", Ativo = false, Sexo = SexoEnum.Feminino, ContagemDeLoginNoUltimoAno = 100},
             };
         }
 
@@ -32,59 +32,37 @@ namespace Amazonia.eCommerceRazor.Controllers
         [HttpPost]
         public IActionResult CriarUtilizador(Utilizador utilizador)
         {
+            utilizadores.Add(utilizador);
             return View(utilizador);
         }
 
 
+        //CRUD
 
-        private static string ObterHashMD5(string palavraPasse)
+        [HttpGet]
+        public IActionResult ListagemDeUtilizadores()
         {
-            var md5Hash = MD5.Create();
-            // Convert the input string to a byte array and compute the hash.
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(palavraPasse));
-
-            // Create a new Stringbuilder to collect the bytes
-            // and create a string.
-            var sBuilder = new StringBuilder();
-
-            // Loop through each byte of the hashed data
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i < data.Length; i++)
-            {
-                sBuilder.Append(data[i].ToString("x2"));
-            }
-
-            // Return the hexadecimal string.
-            return sBuilder.ToString();
-        }
-
-
-  
-
-        private Utilizador ValidarLoginSenha(string login, string palavraPasse)
-        {
-            var hashCalculado = ObterHashMD5(palavraPasse);// ""; //TODO: Colocar cripto
-            var utilizador = utilizadores.FirstOrDefault(x => x.Login == login && x.PalavraPasse == hashCalculado);
-
-            if (utilizador != null)
-            {
-                var cookieOptions = new CookieOptions
-                {
-                    Expires = new DateTimeOffset(DateTime.Now.AddMinutes(30))
-                };
-                HttpContext.Response.Cookies.Append("NomeUtilizador", utilizador.Nome, cookieOptions);
-            }
-
-            return utilizador;
+            return View(utilizadores);
         }
 
         [HttpGet]
-        [Route("EfetuarLogin")]
-        public IActionResult EfetuarLogin(string login, string palavraPasse)
+        public IActionResult EdicaoDeUtilizador(Guid id)
         {
-            var resultado = ValidarLoginSenha(login, palavraPasse);
-            return View(resultado);
+            var utilizador = utilizadores.FirstOrDefault(x => x.Id == id);
+            return View(utilizador);
         }
+
+
+        [HttpPost]
+        public IActionResult EdicaoDeUtilizador(Guid id, Utilizador utilizador)
+        {
+            var userTemp = utilizadores.FirstOrDefault(x => x.Id == id);
+            userTemp = utilizador;
+
+
+            return View(userTemp);
+        }
+
 
 
 
