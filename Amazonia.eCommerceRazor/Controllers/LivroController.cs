@@ -24,6 +24,7 @@ namespace Amazonia.eCommerceRazor.Controllers
         // GET: LivroController
         public ActionResult Index()
         {
+            ViewBag.ClienteLogado = HttpContext.Request.Cookies["NomeUtilizador"];
             return View(livros);
         }
 
