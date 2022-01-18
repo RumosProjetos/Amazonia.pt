@@ -90,6 +90,11 @@ namespace Amazonia.eCommerceRazor
 
             app.UseRouting();
 
+
+
+
+
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -97,6 +102,14 @@ namespace Amazonia.eCommerceRazor
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+                //Cuidado - Como o Controller definiu antes a regra, só chega aqui caso o controller nAo resolva
+                endpoints.MapControllerRoute(
+                    name: "apagar", 
+                    pattern: "apagar/{id?}",
+                    defaults: new { controller = "Livro", action = "Edit" });
             });
 
 

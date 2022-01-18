@@ -1,4 +1,5 @@
 ﻿using Amazonia.DAL.Modelo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -112,6 +113,11 @@ namespace Amazonia.eCommerceRazor.Controllers
         }
 
         // GET: LivroController/Delete/5
+        //Tem precedência !!! Cuidado
+        [Route("Apagar")]
+        [Route("Deletar")]
+        [Route("Excluir")]
+        [Authorize(Roles = "Administradores")]
         public ActionResult Delete(int id)
         {
             var livro = livros.FirstOrDefault(x => x.Id == id);
