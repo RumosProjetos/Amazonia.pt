@@ -25,19 +25,21 @@ namespace Amazonia.eCommerceRazor.Models
 
         [Required]
         [MinLength(32), MaxLength(32)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
 
         [Required]
-        [MinLength(9), MaxLength(9)]
+        [MinLength(9), MaxLength(9)]        
         public string NumeroIdentificacaoFiscal { get; set; }
 
         [NotMapped]
         public int Idade => DateTime.Now.Year - DataNascimento.Year;
 
-        public Morada? Morada { get; set; }
+        public Morada Morada { get; set; }
 
 
         public string UrlFotoCliente { get; set; }

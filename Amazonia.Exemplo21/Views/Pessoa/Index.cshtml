@@ -1,0 +1,35 @@
+﻿@model Amazonia.Exemplo21.Models.Pessoa
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Personal Information</h1>
+
+        <form asp-action="Index">
+            <div asp-validation-summary="All"> </div>
+
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" />
+
+            <br />
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+
+            <br />
+            <label asp-for="Description"></label>
+            <input asp-for="Description" />
+
+            <input type="submit" value="Register" />
+        </form>
+
+    </div>
+</body>
+</html>

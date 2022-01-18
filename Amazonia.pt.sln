@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.Web.WebForms", "Am
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazonia.ConsoleApp.Playground", "Amazonia.ConsoleApp.Playground\Amazonia.ConsoleApp.Playground.csproj", "{6949663C-15CB-4695-BD1F-BF1341C775F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazonia.Exemplo21", "Amazonia.Exemplo21\Amazonia.Exemplo21.csproj", "{ED4622E7-E058-461D-A343-1DD6A1E06458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{6949663C-15CB-4695-BD1F-BF1341C775F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6949663C-15CB-4695-BD1F-BF1341C775F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6949663C-15CB-4695-BD1F-BF1341C775F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4622E7-E058-461D-A343-1DD6A1E06458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4622E7-E058-461D-A343-1DD6A1E06458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4622E7-E058-461D-A343-1DD6A1E06458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4622E7-E058-461D-A343-1DD6A1E06458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

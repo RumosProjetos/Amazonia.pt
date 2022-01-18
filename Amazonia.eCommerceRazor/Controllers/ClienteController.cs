@@ -47,5 +47,19 @@ namespace Amazonia.eCommerceRazor.Controllers
         {
             return Content("https://localhost:44328/img/homem.jpg");
         }
+
+
+
+        public IActionResult CriarNovoCliente()
+        {
+            var cliente = new Cliente();
+            return View(cliente);
+        }
+
+        
+        public IActionResult Detalhes(Cliente cliente)
+        {
+            return View(cliente);
+        }
     }
 }
