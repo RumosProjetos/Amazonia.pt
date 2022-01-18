@@ -10,7 +10,7 @@ namespace Amazonia.eCommerceRazor.Controllers
 {
     public class LivroController : Controller
     {
-        List<Livro> livros;
+        readonly List<Livro> livros;
 
         public LivroController()
         {
@@ -25,6 +25,7 @@ namespace Amazonia.eCommerceRazor.Controllers
         // GET: LivroController
         public ActionResult Index()
         {
+            ViewBag.ClienteLogado = HttpContext.Request.Cookies["NomeUtilizador"];
             return View(livros);
         }
 
