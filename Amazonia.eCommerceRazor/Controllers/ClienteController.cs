@@ -18,7 +18,7 @@ namespace Amazonia.eCommerceRazor.Controllers
                 new Cliente {Nome = "Joao", UserName = "joao@email.pt", Morada = new Morada{Distrito = "Setubal", Localidade = "Barreiro" }, ListaProdutosComprados = new List<Product>()},
                 new Cliente {Nome = "Maria", UserName = "maria@email.pt", Morada = new Morada(), ListaProdutosComprados = new List<Product>()},
                 new Cliente {
-                    Nome = "Marta", UserName = "marta@email.pt", 
+                    Nome = "Marta", UserName = "marta@email.pt",
                     Morada = new Morada{Distrito = "Setubal", Localidade = "Quinta do Conde" },
                     ListaProdutosComprados = new List<Product>
                     {
@@ -56,9 +56,14 @@ namespace Amazonia.eCommerceRazor.Controllers
             return View(cliente);
         }
 
-        
+
         public IActionResult Detalhes(Cliente cliente)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CriarNovoCliente", cliente);
+            }
+
             return View(cliente);
         }
     }

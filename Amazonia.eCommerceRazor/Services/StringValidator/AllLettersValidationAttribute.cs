@@ -10,8 +10,8 @@ namespace Amazonia.eCommerceRazor.Services.StringValidator
             if(value == null)
                 return false;
 
-
-            return ((string)value).All(char.IsLetter);
+            var result = ((string)value).All(char.IsLetter);
+            return result;
         }
     }
 }

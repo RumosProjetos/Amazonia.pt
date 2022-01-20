@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Amazonia.eCommerceRazor.Services.PasswordValidator;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,15 @@ namespace Amazonia.eCommerceRazor.Models
 
         [DataType(DataType.Password)]
         public string PalavraPasse { get; set; }
+
+
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [Compare("PalavraPasse", ErrorMessage = "Password nao bate")]        
+        public string PalavraPasseConfirmacao { get; set; }
+
+
+
 
         [DataType(DataType.Upload)]
         public byte[] Avatar { get; set; }

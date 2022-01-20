@@ -1,5 +1,6 @@
 ﻿using Amazonia.DAL.Modelo;
 using Amazonia.eCommerceRazor.Contants;
+using Amazonia.eCommerceRazor.Services.IdadeValidator;
 using Amazonia.eCommerceRazor.Services.StringValidator;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Amazonia.eCommerceRazor.Models
         [Required]
         [MaxLength(255)]
         [Display(Name = "Nome do Cliente")]
-        [AllLettersValidation]
+        [AllLettersValidation(ErrorMessage = "Só aceita letras")]
         public string Nome { get; set; }
 
         [Required]
@@ -26,12 +27,13 @@ namespace Amazonia.eCommerceRazor.Models
         public string UserName { get; set; }
 
         [Required]
-        [MinLength(32), MaxLength(32)]
+        [MinLength(3), MaxLength(32)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]
         [Display(Name = "Data de Nascimento")]
+        [ClienteMaiorDeIdade]
         public DateTime DataNascimento { get; set; }
 
         [Required]
