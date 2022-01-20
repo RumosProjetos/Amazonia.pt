@@ -1,5 +1,6 @@
 ﻿using Amazonia.DAL.Modelo;
 using Amazonia.eCommerceRazor.Contants;
+using Amazonia.eCommerceRazor.Services.StringValidator;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,7 @@ namespace Amazonia.eCommerceRazor.Models
         [Required]
         [MaxLength(255)]
         [Display(Name = "Nome do Cliente")]
+        [AllLettersValidation]
         public string Nome { get; set; }
 
         [Required]
