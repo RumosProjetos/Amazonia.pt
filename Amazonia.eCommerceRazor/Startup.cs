@@ -31,7 +31,14 @@ namespace Amazonia.eCommerceRazor
         {
             services.AddMiniProfiler().AddEntityFramework();
 
-            services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite("Data Source=person.db"));
+            //Exemplo SQLite
+            //services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite("Data Source=person.db"));
+
+            var connectionString = Configuration.GetConnectionString("MinhaConexao");
+            services.AddDbContext<ECommerceDbContext>(options => options.UseSqlServer(connectionString));
+
+
+
 
             services.AddControllersWithViews();
             services.AddLogging();
@@ -84,7 +91,7 @@ namespace Amazonia.eCommerceRazor
 
             if (env.IsDevelopment())
             {
-                dbContext.Database.EnsureDeleted();
+                //dbContext.Database.EnsureDeleted(); //Cuidado: Vai apagar tudo, nunca usar em PRODução.
                 dbContext.Database.EnsureCreated();                
                 app.UseDeveloperExceptionPage();
                 app.UseMiniProfiler();

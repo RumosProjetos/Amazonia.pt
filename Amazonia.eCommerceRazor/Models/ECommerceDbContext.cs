@@ -12,7 +12,7 @@ namespace Amazonia.eCommerceRazor.Models
 
         public ECommerceDbContext(DbContextOptions<ECommerceDbContext> options) : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
