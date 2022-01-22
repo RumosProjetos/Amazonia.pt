@@ -29,6 +29,8 @@ namespace Amazonia.eCommerceRazor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMiniProfiler().AddEntityFramework();
+
             services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite("Data Source=person.db"));
 
             services.AddControllersWithViews();
@@ -85,6 +87,7 @@ namespace Amazonia.eCommerceRazor
                 dbContext.Database.EnsureDeleted();
                 dbContext.Database.EnsureCreated();                
                 app.UseDeveloperExceptionPage();
+                app.UseMiniProfiler();
             }
             else
             {

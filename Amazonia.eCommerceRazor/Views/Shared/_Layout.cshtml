@@ -39,6 +39,8 @@
         </nav>
     </header>
 
+    <mini-profiler />
+
     @await Html.PartialAsync("_IndicadorDeAmbiente")
     <div class="container">
         <main role="main" class="pb-3">
@@ -53,7 +55,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>    
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
