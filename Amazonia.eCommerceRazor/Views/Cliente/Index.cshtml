@@ -29,12 +29,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.UserName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Morada.Distrito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Morada.Localidade)
-            </th>
+      
 
             <th>
                 Etiqueta para Cartas
@@ -58,16 +53,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Morada.Distrito)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Morada.Localidade)
-                </td>
-                <td>
-                    @await Component.InvokeAsync("Morada", item.Morada);
-                </td>
-
+    
                 <td>
                     @await Component.InvokeAsync("ListaProdutos", item.ListaProdutosComprados)
                 </td>

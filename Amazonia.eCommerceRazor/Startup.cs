@@ -1,3 +1,4 @@
+using Amazonia.eCommerceRazor.Models;
 using Amazonia.eCommerceRazor.Services.Logging;
 using Amazonia.eCommerceRazor.Services.PDFGenerator;
 using Microsoft.AspNetCore.Builder;
@@ -11,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Amazonia.eCommerceRazor
 {
@@ -26,6 +29,8 @@ namespace Amazonia.eCommerceRazor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite("Data Source=person.db"));
+
             services.AddControllersWithViews();
             services.AddLogging();
 
@@ -38,7 +43,7 @@ namespace Amazonia.eCommerceRazor
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHistorico logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHistorico logger, ECommerceDbContext dbContext )
         {
             //logger.Guardar("Oi mundo - Hora que a App iniciou");
 
@@ -77,6 +82,8 @@ namespace Amazonia.eCommerceRazor
 
             if (env.IsDevelopment())
             {
+                dbContext.Database.EnsureDeleted();
+                dbContext.Database.EnsureCreated();                
                 app.UseDeveloperExceptionPage();
             }
             else

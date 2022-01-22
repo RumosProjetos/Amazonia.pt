@@ -5,11 +5,7 @@ using System.Threading.Tasks;
 
 namespace Amazonia.eCommerceRazor.Models
 {
-    public class Product
+    public class Exemplo
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-        public virtual Cliente Cliente { get; set; }
     }
 }

@@ -80,7 +80,11 @@ namespace Amazonia.eCommerceRazor.Controllers
         }
 
 
-
+        public IActionResult Logout()
+        {
+            ViewBag.MinhaVar = "";
+            return View("home");
+        }
     }
 }
 

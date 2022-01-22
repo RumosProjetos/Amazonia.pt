@@ -43,12 +43,17 @@ namespace Amazonia.eCommerceRazor.Models
         [NotMapped]
         public int Idade => DateTime.Now.Year - DataNascimento.Year;
 
-        public Morada Morada { get; set; }
-
 
         public string UrlFotoCliente { get; set; }
 
-        public List<Product> ListaProdutosComprados { get; set; }
+        public virtual List<Product> ListaProdutosComprados { get; set; }
+
+
+
+        //public Guid ClienteXMoradaId { get; set; }
+        //public virtual ClienteXMorada Morada { get; set; }
+
+
 
     }
 }

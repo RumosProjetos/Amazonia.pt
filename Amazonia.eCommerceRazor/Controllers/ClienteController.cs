@@ -11,15 +11,24 @@ namespace Amazonia.eCommerceRazor.Controllers
 {
     public class ClienteController : Controller
     {
+        private readonly ECommerceDbContext _context;
+
+        public ClienteController(ECommerceDbContext context)
+        {
+            _context = context;
+        }
+
+
+
         // GET: ClienteController
         public ActionResult Index()
         {
             var listaFakeClientes = new List<Cliente> {
-                new Cliente {Nome = "Joao", UserName = "joao@email.pt", Morada = new Morada{Distrito = "Setubal", Localidade = "Barreiro" }, ListaProdutosComprados = new List<Product>()},
-                new Cliente {Nome = "Maria", UserName = "maria@email.pt", Morada = new Morada(), ListaProdutosComprados = new List<Product>()},
+                new Cliente {Nome = "Joao", UserName = "joao@email.pt",  ListaProdutosComprados = new List<Product>()},
+                new Cliente {Nome = "Maria", UserName = "maria@email.pt",  ListaProdutosComprados = new List<Product>()},
                 new Cliente {
                     Nome = "Marta", UserName = "marta@email.pt",
-                    Morada = new Morada{Distrito = "Setubal", Localidade = "Quinta do Conde" },
+                    //Morada = new Morada{Distrito = "Setubal", Localidade = "Quinta do Conde" },
                     ListaProdutosComprados = new List<Product>
                     {
                         new Product {Name = "Televisão", Id = new Random().Next()},
@@ -49,6 +58,12 @@ namespace Amazonia.eCommerceRazor.Controllers
         }
 
 
+        public ContentResult ObterProdutosComprados()
+        {
+            return Content("https://localhost:44328/img/homem.jpg");
+        }
+
+
 
         public IActionResult CriarNovoCliente()
         {
@@ -65,6 +80,14 @@ namespace Amazonia.eCommerceRazor.Controllers
             }
 
             return View(cliente);
+        }
+
+
+
+        public IActionResult ListagemClientesDoDatabase()
+        {
+            var listagem = _context.Clientes.ToList();
+            return View(listagem);
         }
     }
 }

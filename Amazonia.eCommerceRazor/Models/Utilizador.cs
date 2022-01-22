@@ -1,5 +1,4 @@
-﻿using Amazonia.eCommerceRazor.Services.PasswordValidator;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -37,7 +36,7 @@ namespace Amazonia.eCommerceRazor.Models
 
         [HiddenInput(DisplayValue = false)]        
         public SexoEnum Sexo { get; set; }
-        public List<string> SexosPossiveis { get; set; }
+        //public List<string> SexosPossiveis { get; set; }
         public int ContagemDeLoginNoUltimoAno { get; set; }
     }
 }
