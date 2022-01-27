@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Amazonia.WebApi.Dto
+﻿namespace Amazonia.WebApi.Dto
 {
     public class ClienteMoradaDto
     {

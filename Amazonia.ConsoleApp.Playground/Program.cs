@@ -1,6 +1,5 @@
 ﻿using Amazonia.eCommerceRazor.Services.Logging;
 using SimpleInjector;
-using System;
 
 namespace Amazonia.ConsoleApp.Playground
 {

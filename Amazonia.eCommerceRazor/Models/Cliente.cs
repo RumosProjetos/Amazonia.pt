@@ -1,5 +1,4 @@
-﻿using Amazonia.DAL.Modelo;
-using Amazonia.eCommerceRazor.Contants;
+﻿using Amazonia.eCommerceRazor.Contants;
 using Amazonia.eCommerceRazor.Services.IdadeValidator;
 using Amazonia.eCommerceRazor.Services.StringValidator;
 using System;

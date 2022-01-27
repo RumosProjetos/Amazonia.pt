@@ -1,5 +1,3 @@
-using System;
-
 namespace Amazonia.eCommerceRazor.Models
 {
     public class ErrorViewModel

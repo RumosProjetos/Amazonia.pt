@@ -1,7 +1,6 @@
 ﻿using Amazonia.DAL.Modelo;
 using Amazonia.DAL.Repositorios;
 using Amazonia.WebApi.Dto;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

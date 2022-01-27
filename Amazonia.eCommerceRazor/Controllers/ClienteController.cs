@@ -1,18 +1,15 @@
-﻿using Amazonia.DAL.Modelo;
-using Amazonia.eCommerceRazor.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Amazonia.eCommerceRazor.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Amazonia.eCommerceRazor.Controllers
 {
     public class ClienteController : Controller
     {
         private readonly ECommerceDbContext _context;
-
+         ///TESTE
         public ClienteController(ECommerceDbContext context)
         {
             _context = context;

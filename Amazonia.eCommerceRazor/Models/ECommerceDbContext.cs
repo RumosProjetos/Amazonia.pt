@@ -1,15 +1,11 @@
 ﻿using Amazonia.DAL.Modelo;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Amazonia.eCommerceRazor.Models
 {
     public class ECommerceDbContext : DbContext
     {
-
         public ECommerceDbContext(DbContextOptions<ECommerceDbContext> options) : base(options)
         {
             

@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.IO;
-
-namespace Amazonia.eCommerceRazor.Services.Logging
+﻿namespace Amazonia.eCommerceRazor.Services.Logging
 {
     public class HistoricoJson : IHistorico
     {

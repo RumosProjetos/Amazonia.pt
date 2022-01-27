@@ -3,15 +3,9 @@ using Amazonia.eCommerceRazor.Services.Logging;
 using Amazonia.eCommerceRazor.Services.PDFGenerator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -29,7 +23,7 @@ namespace Amazonia.eCommerceRazor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMiniProfiler().AddEntityFramework();
+                        services.AddMiniProfiler().AddEntityFramework();
 
             //Exemplo SQLite
             //services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite("Data Source=person.db"));
@@ -89,11 +83,13 @@ namespace Amazonia.eCommerceRazor
             //});
 
 
+            app.UseDeveloperExceptionPage();
+
             if (env.IsDevelopment())
             {
                 //dbContext.Database.EnsureDeleted(); //Cuidado: Vai apagar tudo, nunca usar em PRODução.
                 dbContext.Database.EnsureCreated();                
-                app.UseDeveloperExceptionPage();
+           
                 app.UseMiniProfiler();
             }
             else

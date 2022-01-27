@@ -1,5 +1,3 @@
-using System;
-
 namespace Amazonia.Exemplo21.Models
 {
     public class ErrorViewModel
