@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Demonstracao";
+}
+
+<h1>Demonstracao</h1>
+
+
+@foreach (var item in ViewBag.PrecoDosProdutos)
+{
+<p>
+    <div>
+        Nome do Produto: @item.Key
+    </div>
+    <div>
+        Preço do Produto: @item.Value
+    </div>
+</p>
+}

@@ -1,0 +1,61 @@
+﻿@model Amazonia.eCommerceRazor.Models.Restaurant
+
+    <style>
+        #Id {
+            color: green
+        }
+
+        #Address {
+            color: red
+        }
+
+        .text-box {
+            color: brown;
+            background-color: yellow
+        }
+    </style>
+
+
+<h1>Controle Fino do Form</h1>
+<table border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            Password sem ser pelo DisplayFor
+        </th>
+        <th>
+            Password Editor For
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Password)
+        </td>
+        <td>
+            @Model.Password
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Password)
+        </td>
+    </tr>
+
+</table>
+
+
+
+<hr />
+<h1>Vieram do EditorForModel </h1>
+    @Html.EditorForModel()
+
+
+
+
+    <p id="remark">The first way to pass a model from an action to a view</p>

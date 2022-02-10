@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Amazonia.eCommerceRazor.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+
+<p style="color:blue">
+    @Html.ActionLink("Criar nova morada", "Index", "Morada")
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlFotoCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+      
+
+            <th>
+                Etiqueta para Cartas
+            </th>
+
+            <th>
+                Produtos Adquiridos
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Action("ObterFotografia", item.Id)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+    
+                <td>
+                    @await Component.InvokeAsync("ListaProdutos", item.ListaProdutosComprados)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Apagar HtmlHelper", "Delete", new { id = item.Id }) |
+                    <a asp-action="Delete" asp-route-id="@item.Id"> Apagar Tag Helper</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+﻿@model Amazonia.eCommerceRazor.Models.Cliente
+
+<div class="container">
+    <h1>Criar novo cliente</h1>
+
+    <form asp-action="Detalhes">
+
+        <div asp-validation-summary="All"> </div>
+        <hr />
+
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" />
+        <span asp-validation-for="Nome"></span>
+
+        <br />
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+        <br />
+        <label asp-for="DataNascimento"></label>
+        <input asp-for="DataNascimento" />
+        <br />
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <br />
+
+        <div asp-validation-summary="All"> </div>
+
+
+        <input type="submit" value="Register" />
+    </form>
+
+    
+
+</div>
+
+<div asp-validation-summary="All" style="background-color:yellow"> </div>
+
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
