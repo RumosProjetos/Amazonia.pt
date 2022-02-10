@@ -10,7 +10,7 @@ namespace Amazonia.eCommerceRazor.Models
         [Display(Name = "Nome do Restaurante")]
         public string Name { get; set; }
 
-        [Display(Name="Endereço do Estabelecimento")]
+        [Display(Name = "Endereço do Estabelecimento")]
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         public bool Open { get; set; }

@@ -6,7 +6,7 @@ namespace Amazonia.DAL.Modelo
     {
         public DbSet<Morada> Moradas { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        
+
         public DbSet<Livro> Livros { get; set; }
         public DbSet<AudioLivro> AudioLivros { get; set; }
         public DbSet<LivroDigital> LivroDigitals { get; set; }

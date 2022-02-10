@@ -10,7 +10,7 @@ namespace Amazonia.DAL.Modelo
         public Guid Id { get; set; }
         public string Distrito { get; set; }
 
-        [Display(Name = "Cidade ..." )]
+        [Display(Name = "Cidade ...")]
         public string Localidade { get; set; }
 
 

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Amazonia.DAL.Modelo;
+using Amazonia.DAL.Repositorios;
+using Amazonia.DAL.Utils;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
-using Amazonia.DAL.Modelo;
-using Amazonia.DAL.Repositorios;
-using Amazonia.DAL.Utils;
-using Microsoft.EntityFrameworkCore;
 
 namespace Amazonia.ConsoleAPP
 {
@@ -63,7 +63,7 @@ namespace Amazonia.ConsoleAPP
             //UPDATE
             primeiroAudioLivroEncontrato.DuracaoLivroEmMinutos = 90;
 
-     
+
             ctx.SaveChanges(); //Update livros set duracaoEmMinutos = 90 where Id = '12321';
 
 
@@ -202,9 +202,10 @@ namespace Amazonia.ConsoleAPP
             var contagemGeral = ctx.Livros.Count();
             var contagemAgrupadoPorNome = ctx.Livros
                                                 .AsEnumerable()
-                                                .GroupBy(x => x.Nome)                                                
-                                                .Select(ex => 
-                                                    new {    
+                                                .GroupBy(x => x.Nome)
+                                                .Select(ex =>
+                                                    new
+                                                    {
                                                         NomeLivro = ex.FirstOrDefault().Nome,
                                                         Contagem = ex.Count()
                                                     });
@@ -224,7 +225,8 @@ namespace Amazonia.ConsoleAPP
                                                  x.Autor
                                              })
                                              .Select(ex =>
-                                                 new {
+                                                 new
+                                                 {
                                                      NomeLivro = ex.FirstOrDefault().Nome,
                                                      NomeAutor = ex.FirstOrDefault().Autor,
                                                      Contagem = ex.Count()
@@ -234,7 +236,8 @@ namespace Amazonia.ConsoleAPP
             var somatorioDoVolumeDosLivros = ctx.LivroImpressos
                                          .GroupBy(x => x.Nome)
                                          .Select(ex =>
-                                             new {
+                                             new
+                                             {
                                                  NomeLivro = ex.FirstOrDefault().Nome,
                                                  Somatorio = ex.Sum(x => x.ObterVolume())
                                              });
@@ -243,7 +246,8 @@ namespace Amazonia.ConsoleAPP
             var mediaDoVolumeDosLivros = ctx.LivroImpressos
                                          .GroupBy(x => x.Nome)
                                          .Select(ex =>
-                                             new {
+                                             new
+                                             {
                                                  NomeLivro = ex.FirstOrDefault().Nome,
                                                  Somatorio = ex.Average(x => x.ObterVolume()),
                                                  LivroMaiorVolume = ex.Max(x => x.ObterVolume()),
@@ -458,8 +462,9 @@ namespace Amazonia.ConsoleAPP
             ctx.SaveChanges();
         }
 
-        public static void ListarLivros(){
-            
+        public static void ListarLivros()
+        {
+
             var repo = new RepositorioLivro();
             var listaLivros = repo.ObterTodos();
 
@@ -471,8 +476,9 @@ namespace Amazonia.ConsoleAPP
 
 
 
-        public static void ListarClientes(){
-             Console.WriteLine("Consulta do Database");
+        public static void ListarClientes()
+        {
+            Console.WriteLine("Consulta do Database");
 
             var repo = new RepositorioCliente();
             // var listaClientes = repo.ObterTodos()
@@ -482,7 +488,7 @@ namespace Amazonia.ConsoleAPP
 
             foreach (var item in listaClientes)
             {
-               Console.WriteLine(item);
+                Console.WriteLine(item);
             }
 
 
@@ -490,14 +496,14 @@ namespace Amazonia.ConsoleAPP
             var listaClientesAdultos = repo.ObterTodosQueTenhamPeloMenos18Anos();
             foreach (var item in listaClientesAdultos)
             {
-               Console.WriteLine(item);
+                Console.WriteLine(item);
             }
 
 
             var listaClientesAdultosComecandoComJ = repo.ObterTodosQueTenhamPeloMenos18AnosENomeComecePor("J");
             foreach (var item in listaClientesAdultosComecandoComJ)
             {
-               Console.WriteLine(item);
+                Console.WriteLine(item);
             }
 
 
@@ -507,10 +513,10 @@ namespace Amazonia.ConsoleAPP
             System.Console.WriteLine(joao);
             System.Console.WriteLine($"Database contem: {listagemTotal.Count} clientes");
             repo.Apagar(joao);
-            
+
 
             var listagemAposApagar = repo.ObterTodos();
-              System.Console.WriteLine($"Database contem: {listagemAposApagar.Count} clientes");
+            System.Console.WriteLine($"Database contem: {listagemAposApagar.Count} clientes");
 
 
             var maria = repo.ObterPorNome("Maria");

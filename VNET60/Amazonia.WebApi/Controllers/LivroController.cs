@@ -18,7 +18,7 @@ namespace Amazonia.WebApi.Controllers
             ctx = new AmazoniaContexto();
         }
 
-         [HttpGet]
+        [HttpGet]
         public DataTableResponse GetLivros()
         {
             var livros = ctx.Livros.ToList();
@@ -86,7 +86,7 @@ namespace Amazonia.WebApi.Controllers
 
             ctx.Livros.Add(livroNovo);
             ctx.SaveChanges();
-                        
+
             return livroNovo.Id;
         }
 

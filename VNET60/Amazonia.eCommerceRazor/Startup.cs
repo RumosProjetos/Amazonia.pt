@@ -3,10 +3,10 @@ using Amazonia.eCommerceRazor.Services.Logging;
 using Amazonia.eCommerceRazor.Services.PDFGenerator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace Amazonia.eCommerceRazor
@@ -23,7 +23,7 @@ namespace Amazonia.eCommerceRazor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-                        services.AddMiniProfiler().AddEntityFramework();
+            services.AddMiniProfiler().AddEntityFramework();
 
             //Exemplo SQLite
             //services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite("Data Source=person.db"));
@@ -46,7 +46,7 @@ namespace Amazonia.eCommerceRazor
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHistorico logger, ECommerceDbContext dbContext )
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHistorico logger, ECommerceDbContext dbContext)
         {
             //logger.Guardar("Oi mundo - Hora que a App iniciou");
 
@@ -88,8 +88,8 @@ namespace Amazonia.eCommerceRazor
             if (env.IsDevelopment())
             {
                 //dbContext.Database.EnsureDeleted(); //Cuidado: Vai apagar tudo, nunca usar em PRODução.
-                dbContext.Database.EnsureCreated();                
-           
+                dbContext.Database.EnsureCreated();
+
                 app.UseMiniProfiler();
             }
             else
@@ -120,7 +120,7 @@ namespace Amazonia.eCommerceRazor
 
                 //Cuidado - Como o Controller definiu antes a regra, só chega aqui caso o controller nAo resolva
                 endpoints.MapControllerRoute(
-                    name: "apagar", 
+                    name: "apagar",
                     pattern: "apagar/{id?}",
                     defaults: new { controller = "Livro", action = "Edit" });
             });

@@ -10,7 +10,7 @@ namespace Amazonia.DAL.Infraestrutura
             var path = @"c:\temp\";
             if (Directory.Exists(path) == false)
             {
-                Directory.CreateDirectory(path);                
+                Directory.CreateDirectory(path);
             }
 
             var log = $"{DateTime.Now} :: {tipoErro}";

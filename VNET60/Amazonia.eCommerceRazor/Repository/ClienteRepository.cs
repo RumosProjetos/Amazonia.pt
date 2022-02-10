@@ -25,7 +25,7 @@ namespace Amazonia.eCommerceRazor.Repository
         {
             var cliente = _context.Clientes.FirstOrDefault(m => m.Id == id);
             cliente.Nome = "Brandon";
-            
+
             _context.Update(cliente);
             _context.SaveChanges();
         }

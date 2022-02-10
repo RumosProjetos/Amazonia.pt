@@ -23,7 +23,7 @@ namespace Amazonia.eCommerceRazor.Models
 
         [NotMapped]
         [DataType(DataType.Password)]
-        [Compare("PalavraPasse", ErrorMessage = "Password nao bate")]        
+        [Compare("PalavraPasse", ErrorMessage = "Password nao bate")]
         public string PalavraPasseConfirmacao { get; set; }
 
 
@@ -33,7 +33,7 @@ namespace Amazonia.eCommerceRazor.Models
         public byte[] Avatar { get; set; }
         public bool Ativo { get; set; }
 
-        [HiddenInput(DisplayValue = false)]        
+        [HiddenInput(DisplayValue = false)]
         public SexoEnum Sexo { get; set; }
         //public List<string> SexosPossiveis { get; set; }
         public int ContagemDeLoginNoUltimoAno { get; set; }

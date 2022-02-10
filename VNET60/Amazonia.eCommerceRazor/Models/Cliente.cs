@@ -36,7 +36,7 @@ namespace Amazonia.eCommerceRazor.Models
         public DateTime DataNascimento { get; set; }
 
         [Required]
-        [MinLength(9), MaxLength(9)]        
+        [MinLength(9), MaxLength(9)]
         public string NumeroIdentificacaoFiscal { get; set; }
 
         [NotMapped]

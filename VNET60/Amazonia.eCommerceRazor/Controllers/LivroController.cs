@@ -91,7 +91,7 @@ namespace Amazonia.eCommerceRazor.Controllers
             try
             {
                 var livro = livros.FirstOrDefault(x => x.Id == id);
-                
+
                 var dadosNovos = new Livro
                 {
                     Id = livro.Id,

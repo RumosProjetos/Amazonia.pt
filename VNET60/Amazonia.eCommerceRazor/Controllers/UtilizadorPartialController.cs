@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Security.Cryptography;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Amazonia.eCommerceRazor.Controllers
@@ -32,7 +32,7 @@ namespace Amazonia.eCommerceRazor.Controllers
         }
 
 
-  
+
 
         private Utilizador ValidarLoginSenha(string login, string palavraPasse)
         {

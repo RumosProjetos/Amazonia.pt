@@ -7,7 +7,7 @@ namespace Amazonia.eCommerceRazor.Services.StringValidator
     {
         public override bool IsValid(object value)
         {
-            if(value == null)
+            if (value == null)
                 return false;
 
             var result = ((string)value).All(char.IsLetter);

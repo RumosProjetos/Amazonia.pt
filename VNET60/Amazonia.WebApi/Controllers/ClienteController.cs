@@ -22,7 +22,7 @@ namespace Amazonia.WebApi.Controllers
         /// Listagem de Clientes
         /// </summary>
         /// <returns></returns>
-        [HttpGet]        
+        [HttpGet]
         public List<Cliente> GetClientes()
         {
             return repo.ObterTodos();
@@ -57,9 +57,9 @@ namespace Amazonia.WebApi.Controllers
         public bool DeleteClientePorNome(string nome)
         {
             var cli = repo.ObterPorNome(nome);
-            if(cli == null)
+            if (cli == null)
             {
-                return false;                
+                return false;
             }
 
             repo.Apagar(cli);

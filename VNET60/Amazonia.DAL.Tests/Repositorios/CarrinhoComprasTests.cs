@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System;
-using Amazonia.DAL.Desconto;
-using System.Configuration;
+﻿using Amazonia.DAL.Desconto;
 using Amazonia.DAL.Modelo;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
 
 namespace Amazonia.DAL.Repositorios.Tests
 {
@@ -189,7 +189,7 @@ namespace Amazonia.DAL.Repositorios.Tests
 
             var descontoPercentual = new DescontoPercentual
             {
-                PercentualDesconto = 20               
+                PercentualDesconto = 20
             };
             var valorObtidoDescontoPercentual = carrinho.AplicarDesconto(descontoPercentual);
 

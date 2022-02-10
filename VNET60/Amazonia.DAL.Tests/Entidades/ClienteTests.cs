@@ -4,7 +4,7 @@ using System;
 
 namespace Amazonia.DAL.Entidades.Tests
 {
-    [TestClass]    
+    [TestClass]
     public class ClienteTests
     {
         [TestMethod]

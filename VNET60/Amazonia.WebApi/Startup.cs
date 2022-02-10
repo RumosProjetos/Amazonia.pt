@@ -51,7 +51,7 @@ namespace Amazonia.WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });      
+            });
         }
     }
 }

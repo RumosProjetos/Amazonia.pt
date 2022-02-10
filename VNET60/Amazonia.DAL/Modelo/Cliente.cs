@@ -16,10 +16,10 @@ namespace Amazonia.DAL.Modelo
         public string Password { get; set; }
 
         [Required]
-        public DateTime DataNascimento { get; set; }     
-        
+        public DateTime DataNascimento { get; set; }
+
         [Required]
-        [MinLength(9),MaxLength(9)]
+        [MinLength(9), MaxLength(9)]
         public string NumeroIdentificacaoFiscal { get; set; }
 
         [NotMapped]

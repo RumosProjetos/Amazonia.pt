@@ -8,7 +8,7 @@ namespace Amazonia.DAL.Modelo
     {
         public Periodico()
         {
-            if(DataLancamento == new DateTime()) //0001, 01, 01
+            if (DataLancamento == new DateTime()) //0001, 01, 01
             {
                 DataLancamento = DateTime.Today;
             }

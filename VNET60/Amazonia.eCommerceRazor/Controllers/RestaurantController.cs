@@ -7,14 +7,16 @@ namespace Amazonia.eCommerceRazor.Controllers
     {
         public IActionResult Index()
         {
-            var restaurant = new Restaurant() {
-                Id = 1, 
-                Name = "My Kitchen 1", 
-                Address = "New Brunswick, 2657 Webster Street", 
-                Speciality = "Hamburgers", 
-                Open = true, 
+            var restaurant = new Restaurant()
+            {
+                Id = 1,
+                Name = "My Kitchen 1",
+                Address = "New Brunswick, 2657 Webster Street",
+                Speciality = "Hamburgers",
+                Open = true,
                 Review = 4,
-            Password = "teste"};
+                Password = "teste"
+            };
 
 
             return View(restaurant);

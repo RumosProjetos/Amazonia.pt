@@ -9,7 +9,7 @@ namespace Amazonia.eCommerceRazor.Controllers
     public class ClienteController : Controller
     {
         private readonly ECommerceDbContext _context;
-         ///TESTE
+        ///TESTE
         public ClienteController(ECommerceDbContext context)
         {
             _context = context;
