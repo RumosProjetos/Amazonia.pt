@@ -2,7 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+ <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <CodeAnalysisRuleSet>..\.sonarlint\jonatasafonso_amazonia.ptcsharp.ruleset</CodeAnalysisRuleSet>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>

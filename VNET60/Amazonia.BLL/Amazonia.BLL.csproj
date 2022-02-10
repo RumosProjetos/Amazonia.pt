@@ -9,4 +9,11 @@
     <AdditionalFiles Include="..\.sonarlint\jonatasafonso_amazonia.pt\CSharp\SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.35.0.42613">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>
