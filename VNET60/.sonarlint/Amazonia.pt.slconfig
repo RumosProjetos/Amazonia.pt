@@ -1,0 +1,15 @@
+{
+  "ServerUri": "https://sonarcloud.io/",
+  "Organization": {
+    "Key": "rumosamazonia",
+    "Name": "Jônatas Afonso"
+  },
+  "ProjectKey": "JonatasAfonso_Amazonia.pt",
+  "ProjectName": "Amazonia.pt",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AXy96RraxcL6b7vnvg6C",
+      "ProfileTimestamp": "2021-11-22T10:44:23Z"
+    }
+  }
+}

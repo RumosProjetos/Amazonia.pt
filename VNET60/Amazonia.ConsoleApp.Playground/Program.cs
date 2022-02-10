@@ -14,6 +14,12 @@ namespace Amazonia.ConsoleApp.Playground
             container.Register<IHistorico, HistoricoCustomizado>(Lifestyle.Singleton);
             // 3. Verify your configuration
             container.Verify();
+
+
+
+            var exemplo = 1;
+
+
         }
 
 

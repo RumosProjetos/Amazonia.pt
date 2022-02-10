@@ -52,6 +52,8 @@ namespace Amazonia.DAL.Repositorios
             //return valorCalculado;
 
 
+            var exemplo = "sdsdfsd";
+
             throw new NotImplementedException("FAlta mover para o local correto");
         }
     }
